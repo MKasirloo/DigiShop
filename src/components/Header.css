@@ -298,6 +298,7 @@
         padding: 10px;
         transform: translateX(300px);
         transition: all 0.3s;
+        z-index: 10000;
     }
 
     .navbar-bottom.open {
