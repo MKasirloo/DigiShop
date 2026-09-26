@@ -26,6 +26,14 @@
   height: 50px;
 }
 
+.swiper-button-next {
+  margin-left: 4px !important;
+}
+
+.swiper-button-prev {
+  margin-right: 4px !important;
+}
+
 .swiper-button-next svg, .swiper-button-prev svg {
   width: 30px;
   height: 30px;
