@@ -15,35 +15,78 @@ export default function Home() {
 			<Header cartCount={0}/>
 			<div className="header-fixer"></div>
 			<Container>
-			<Swiper
-          modules={[Navigation, Pagination, Autoplay]}
-          navigation
-          pagination={{ clickable: true }}
-          autoplay={{
-            delay: 2500,
-            disableOnInteraction: false,
-          }}
-          loop={true}
-          slidesPerView={1}
-          className="mainSlider"
-        >
-					<SwiperSlide>
-						<div className="mainSiderSlideContainer">
-							<img src="/images/posters/iPhone-13-sale.png" alt="iPhone 13 sale" />
+				<Swiper
+						modules={[Navigation, Pagination, Autoplay]}
+						navigation
+						pagination={{ clickable: true }}
+						autoplay={{
+							delay: 2500,
+							disableOnInteraction: false,
+						}}
+						loop={true}
+						slidesPerView={1}
+						className="mainSlider"
+					>
+						<SwiperSlide>
+							<div className="mainSiderSlideContainer">
+								<img src="/images/posters/iPhone-13-sale.png" alt="iPhone 13 sale" />
+							</div>
+						</SwiperSlide>
+						<SwiperSlide>
+							<div className="mainSiderSlideContainer">
+								<img src="/images/posters/iPhone-14.png" alt="iPhone 14 show" />
+							</div>
+						</SwiperSlide>
+						<SwiperSlide>
+							<div className="mainSiderSlideContainer">
+								<img src="/images/posters/Gifts.png" alt="Gifts" />
+							</div>
+						</SwiperSlide>
+					</Swiper>
+					{/* Stories section */}
+					<div className="storiesSection">
+						<div className="storyContainer">
+							<div className="story">
+								<img src="/images/stories/iPhone-18.png" alt="iPhone 18" />
+							</div>
 						</div>
-					</SwiperSlide>
-					<SwiperSlide>
-						<div className="mainSiderSlideContainer">
-							<img src="/images/posters/iPhone-14.png" alt="iPhone 14 show" />
+						<div className="storyContainer">
+							<div className="story">
+								<img src="/images/stories/PS5.webp" alt="PS5" />
+							</div>
 						</div>
-					</SwiperSlide>
-					<SwiperSlide>
-						<div className="mainSiderSlideContainer">
-							<img src="/images/posters/Gifts.png" alt="Gifts" />
+						<div className="storyContainer">
+							<div className="story">
+								<img src="/images/stories/LOQ.webp" alt="LOQ" />
+							</div>
 						</div>
-					</SwiperSlide>
-				</Swiper>
-			</Container>
+						<div className="storyContainer">
+							<div className="story">
+								<img src="/images/stories/Powerbank.webp" alt="Powerbank" />
+							</div>
+						</div>
+						<div className="storyContainer">
+							<div className="story">
+								<img src="/images/stories/iPhone-17-Pro-Max.png" alt="iPhone 17 Pro Max" />
+							</div>
+						</div>
+						<div className="storyContainer">
+							<div className="story">
+								<img src="/images/stories/Realme-C56.webp" alt="" />
+							</div>
+						</div>
+						<div className="storyContainer">
+							<div className="story">
+								<img src="/images/stories/S26-Ultra.webp" alt="S26 Ultra" />
+							</div>
+						</div>
+						<div className="storyContainer">
+							<div className="story">
+								<img src="/images/stories/Headphone.webp" alt="Headphone" />
+							</div>
+						</div>
+					</div>
+				</Container>
 			<Footer />
 		</>
   );
