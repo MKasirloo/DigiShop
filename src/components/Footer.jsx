@@ -1,4 +1,4 @@
-import './footer.css';
+import './Footer.css';
 import {HeartIcon, ChevronUpIcon} from '../assets/icons';
 
 export default function Footer() {

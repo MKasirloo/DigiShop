@@ -1,4 +1,4 @@
-import './container.css'
+import './Container.css'
 
 export default function Container({ children }) {
 	return(
