@@ -1,0 +1,169 @@
+@import url("../styles/fonts.css");
+
+/* * {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: Shabnam, sans-serif;
+    text-decoration: none;
+    color: black;
+} */
+
+.container {
+    height: 100vh;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.box {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: 20px;
+    width: 500px;
+    height: 400px;
+    padding: 20px;
+    border: 1px solid #adadad;
+    border-radius: 20px;
+}
+
+.logo {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    margin-bottom: 40px;
+}
+
+.logo img {
+    width: 60%;
+}
+
+.logo a {
+    position: absolute;
+    right: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 20px;
+    text-decoration: none;
+    color: black;
+}
+
+.backIcon {
+    color: #adadad;
+}
+
+.backIcon svg {
+    width: 40px;
+    height: 40px;
+    stroke: #424242;
+}
+
+.loginForm {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.text {
+    margin-bottom: 15px;
+}
+
+.desc {
+    font-size: 13px;
+    color: #6c6c6c;
+}
+
+.inputWrapper {
+    position: relative;
+    width: 100%;
+    margin: 16px 0;
+}
+
+.mobileNumber, .loginButton {
+    width: 100%;
+    padding: 16px;
+}
+
+.mobileNumber {
+    border: 1px solid #969696;
+    border-radius: 10px;
+    /* margin: 10px; */
+    outline: none;
+    transition: all 0.1s;
+}
+
+.mobileNumber:focus {
+    border: 1px solid black;
+}
+
+.mobileNumberLable {
+    position: absolute;
+    right: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    margin-right: 10px;
+    transition: all 0.2s;
+    background-color: #ffffff00;
+    padding: 4px;
+    color: #777;
+}
+
+.mobileNumber:focus + .mobileNumberLable {
+    top: 0;
+    color: black;
+    background-color: #ffffff;
+}
+
+.loginButton {
+    border: none;
+    outline: none;
+    background-color: #4d00ff;
+    color: white;
+    border-radius: 10px;
+    transition: all 0.2s;
+}
+
+.loginButton:disabled {
+    background-color: #4d00ff50;
+}
+
+.policyWrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
+
+.policy {
+    font-size: 12px;
+}
+
+.policy a {
+    color: #4d00ff;
+}
+
+@media screen and (max-width: 460px) {
+    .policy {
+        font-size: 8px;
+    }
+    .box {
+        width: 100%;
+    }
+}
+
+@media screen and (max-width: 560px) {
+    .box {
+        border: none;
+    }
+    .policy {
+        font-size: 10px;
+    }
+    .backIcon svg {
+        width: 30px;
+        height: 30px;
+    }
+}

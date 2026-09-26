@@ -1,0 +1,16 @@
+.products-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+}
+
+@media screen and (max-width: 1080px) {
+  .products-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media screen and (max-width: 780px) {
+  .products-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}

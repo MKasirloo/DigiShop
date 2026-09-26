@@ -1,0 +1,48 @@
+@import url(./fonts.css);
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.container {
+    width: 1280px;
+    margin: auto;
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    height: 100px;
+    align-items: center;
+    padding: 20px;
+}
+
+.logo {
+    width: 200px;
+}
+
+.logo img {
+    width: 100%;
+}
+
+i {
+    font-size: 24px;
+}
+
+.menu {
+    display: none;
+    position: fixed;
+    width: 256px;
+    flex-direction: column;
+    transition: all 0.3s;
+}
+
+@media only screen and (max-width: 768px) {
+    .menu {
+        display: flex;
+        top: 0;
+        left: -256px;
+    }
+}

@@ -1,0 +1,44 @@
+@font-face {
+    font-family: Vazir;
+    src: url("../assets/fonts/Vazir.woff2") format("woff2");
+}
+
+@font-face {
+    font-family: Lalezar;
+    src: url("../assets/fonts/Lalezar-Regular.ttf") format("truetype");
+}
+
+@font-face {
+    font-family: Yekan;
+    src: url("../assets/fonts/Yekan.ttf") format("truetype");
+}
+
+@font-face {
+    font-family: Shabnam;
+    src: url("../assets/fonts/Shabnam-Thin-FD.woff2") format("woff2");
+    font-weight: 100;
+}
+
+@font-face {
+    font-family: Shabnam;
+    src: url("../assets/fonts/Shabnam-Light-FD.woff2") format("woff2");
+    font-weight: 300;
+}
+
+@font-face {
+    font-family: Shabnam;
+    src: url("../assets/fonts/Shabnam-Medium-FD.woff2") format("woff2");
+    font-weight: 400;
+}
+
+@font-face {
+    font-family: Shabnam;
+    src: url("../assets/fonts/Shabnam-Medium-FD.woff2") format("woff2");
+    font-weight: 500;
+}
+
+@font-face {
+    font-family: Shabnam;
+    src: url("../assets/fonts/Shabnam-Bold-FD.woff2") format("woff2");
+    font-weight: 700;
+}

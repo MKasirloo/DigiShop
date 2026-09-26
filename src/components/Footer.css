@@ -1,0 +1,129 @@
+/* Footer */
+
+footer {
+    margin: 20px;
+    margin-top: 100px;
+    padding: 20px;
+    border-radius: 20px;
+    background: linear-gradient(270deg, #3f0079, #1410cd);
+}
+
+.footer-top{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.back-to-top {
+    background: #fff;
+    color: gray;
+    border: 2px solid #dddddd;
+    outline: none;
+    border-radius: 10px;
+}
+
+.back-to-top a {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 8px 16px;
+    text-decoration: none;
+    color: inherit;
+}
+
+.logo-footer {
+    font-size: 40px;
+    color: #fff;
+    font-family: Lalezar, sans-serif;
+}
+
+.footer-section {
+    display: flex;
+}
+
+.footer-desc {
+    padding: 20px;
+    color: #fff;
+    font-size: large;
+    width: 60%;
+    line-height: 2rem;
+}
+
+.footer-badges {
+    width: 40%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 10px;
+    padding: 10px 20px;
+    padding-left: 0;
+}
+
+.footer-badge {
+    width: 100px;
+    height: 150px;
+    padding: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #fff;
+    border-radius: 8px;
+    border: 1px solid #ddd;
+    margin: 2px 0;
+}
+
+.footer-badge img {
+    width: 100%;
+}
+
+.copyright-section {
+    border-top: 1px solid rgb(211, 211, 211);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 20px;
+    font-weight: 300;
+    flex-wrap: wrap;
+    margin-bottom: 16px;
+}
+
+.copyright-section p {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.copyright-section p a {
+    font-weight: normal;
+}
+
+.copyright-section p svg {
+    color: red;
+}
+
+.mobile-menu-fixer {
+    height: 70px;
+    display: none;
+}
+
+/* Responsive */
+
+@media screen and (max-width: 1080px) {
+    .footer-badges {
+        justify-content: center;
+    }
+}
+
+@media screen and (max-width: 780px) {
+    .copyright-section {
+        flex-direction: column;
+        justify-content: center;
+        gap: 20px;
+    }
+    .footer-badges {
+        justify-content: flex-end;
+        margin-left: 0;
+        padding-left: 0;
+    }
+}

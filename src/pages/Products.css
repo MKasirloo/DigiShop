@@ -1,0 +1,123 @@
+.productsWrapper {
+  display: flex;
+  flex-direction: row-reverse;
+}
+
+.productsContainer {
+  width: 75%;
+}
+
+.filters {
+  width: 25%;
+}
+
+.orderByText {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.orderBySection {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.orderByList {
+  display: flex;
+  gap: 5px;
+}
+
+.currentOrderBy {
+  display: none;
+}
+
+.orderByListItem {
+  background: none;
+  border: none;
+  outline: none;
+  padding: 10px;
+}
+
+.orderByListItem.selected {
+  color: #4d00ff;
+}
+
+.orderByListItem:hover {
+  cursor: pointer;
+}
+
+.OrderListOverlay {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background-color: #00000050;
+  z-index: 9999;
+}
+
+.OrderListOverlay.hidden {
+  display: none;
+}
+
+.mobileOrderByButton {
+  pointer-events: none;
+  padding: 10px;
+  display: flex;
+  gap: 8px;
+}
+
+@media screen and (max-width: 1080px) {
+  .productFilters {
+    display: none;
+  }
+  .productsContainer {
+    width: 100%;
+  }
+}
+
+@media screen and (max-width: 780px) {
+  .orderByList {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    background-color: #fff;
+    display: flex;
+    justify-content: space-around;
+    flex-direction: column;
+    /* gap: 20px; */
+    transform: translate(-50%, -50%);
+    z-index: 10000;
+    border-radius: 8px;
+  }
+
+  .mobileOrderByButton {
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    padding: 10px;
+    margin: 10px 0px;
+  }
+
+  .orderByListItem {
+    padding: 16px;
+    border-bottom: 1px solid #ccc;
+  }
+
+  .orderByListItem:last-child {
+    border-bottom: none;
+  }
+
+  .orderByList.closed {
+    display: none;
+  }
+
+  .currentOrderBy {
+    display: block;
+  }
+
+  .mobileOrderByButton {
+    pointer-events: all;
+    
+  }
+}
