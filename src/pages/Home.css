@@ -142,14 +142,167 @@
   }
 }
 
+/* Offer */
+
+.offer {
+  display: flex;
+  position: relative;
+  align-items: center;
+  gap: 1.5rem;
+  background-color: #e93030;
+  height: auto;
+  border-radius: 20px;
+  padding: 20px;
+  padding-left: 0;
+  margin-bottom: 50px;
+}
+
+.offer-title {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 150px;
+}
+
+.offer-title img {
+  width: 100%;
+}
+
+.offer-title p {
+  color: #fff;
+  font-family: Lalezar, sans-serif;
+  font-size: 30px;
+  text-align: center;
+  line-height: 3rem;
+}
+
+.swiper-button-next, .swiper-button-prev {
+  opacity: 1;
+  transition: opacity 0.2s ease;
+}
+
+.offer-cards {
+  width: 100%;
+  .swiper-button-disabled {
+    opacity: 0;
+  }
+}
+
+.offerCardSlide {
+  width: auto;
+}
+
+.offer-card {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  flex-shrink: 0;
+  height: 280px;
+  padding: 15px;
+  background-color: #fff;
+  width: 180px;
+  font-size: 14px;
+  font-weight: 300;
+}
+
+.offer-card__product-name {
+  margin: 12px 0px 8px 0px;
+  line-height: 1.5rem;
+}
+
+.offer-card__img-container {
+  width: 150px;
+  height: 150px;
+  display: flex;
+  align-items: center;
+}
+
+.offer-card__img-container img {
+  width: 100%;
+}
+
+.offerCardSlide:first-child .offer-card {
+  border-radius: 0px 8px 8px 0px;
+}
+
+.offerCardSlide:last-child .offer-card {
+  border-radius: 8px 0px 0px 8px;
+  margin-left: 10px;
+}
+
+.offer-card__price-wrapper {
+  margin-top: auto;
+}
+
+.offer-card__offer {
+  display: flex;
+  flex-direction: row-reverse;
+  align-items: center;
+  gap: 6px;
+}
+
+.offer-card__offer-percent {
+  background-color: #e93030;
+  color: #fff;
+  border-radius: 8px;
+  padding: 0px 4px;
+}
+
+.offer-card__price {
+  display: flex;
+  align-items: center;
+  flex-direction: row-reverse;
+  margin-top: auto;
+}
+
+.offer-card__price {
+  display: flex;
+  gap: 5px;
+  font-weight: normal;
+  font-size: 1rem;
+}
+
+.toman {
+  font-weight: 300;
+  font-size: 14px;
+}
+
+
 @media screen and (max-width: 780px) {
+
   .mainSiderSlideContainer {
     height: 250px;
   }
+
   .swiper-button-next, .swiper-button-prev {
     display: none;
   }
+
   .categoriesSection {
     gap: 20px;
+  }
+
+  .offer {
+    flex-direction: column;
+  }
+  
+  .offerTitleImageContainer {
+    width: 200px;
+    height: 200px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    img {
+      width: 100%;
+      height: auto;
+    }
+  }
+
+  .offer-title {
+    flex-direction: row;
+    justify-content: space-around;
+    width: 200px;
   }
 }
