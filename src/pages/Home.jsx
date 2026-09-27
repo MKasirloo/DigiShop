@@ -183,7 +183,7 @@ export default function Home() {
 											<div className="offer-card__price-wrapper">
 													<div className="offer-card__price">
 															<span className="toman">تومان</span>
-															<span>{(p.price - p.price * (1 - (p.discount_percent / 100))).toLocaleString()}</span>
+															<span>{(p.price * (1 - (p.discount_percent / 100))).toLocaleString()}</span>
 													</div>
 											</div>
 									</a>

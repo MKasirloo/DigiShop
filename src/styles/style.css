@@ -832,3 +832,20 @@ footer {
         transform: translateX(50%);
     }
 }
+
+html::-webkit-scrollbar {
+    width: 8px;
+}
+  
+html::-webkit-scrollbar-track {
+    background: #f1f1f1;
+}
+
+html::-webkit-scrollbar-thumb {
+    background: #4d00ff;
+    border-radius: 10px;
+}
+
+html::-webkit-scrollbar-thumb:hover {
+    background: #004cff;
+}
