@@ -140,6 +140,10 @@
     align-items: center;
     font-size: medium;
   }
+
+  &:hover {
+    cursor: pointer;
+  }
 }
 
 /* Offer */
