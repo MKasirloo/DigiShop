@@ -86,6 +86,43 @@ export default function Home() {
 							</div>
 						</div>
 					</div>
+					<div className="categoriesSectionTitle">
+						<span>دسته بندی ها</span>
+					</div>
+					<div className="categoriesSection">
+						<div className="category">
+							<img src="/images/categories/Phone.png" alt="Phone category" />
+							<span>موبایل</span>
+						</div>
+						<div className="category">
+							<img src="/images/categories/iPad.png" alt="Tablet category" />
+							<span>تبلت</span>
+						</div>
+						<div className="category">
+							<img src="/images/categories/Play_station.png" alt="Play station category" />
+							<span>کنسول بازی</span>
+						</div>
+						<div className="category">
+							<img src="/images/categories/laptop.png" alt="Laptop category" />
+							<span>لپ تاپ</span>
+						</div>
+						<div className="category">
+							<img src="/images/categories/watchs.png" alt="Watch category" />
+							<span>ساعت هوشمند</span>
+						</div>
+						<div className="category">
+							<img src="/images/categories/handsfree.png" alt="Handsfree category" />
+							<span>هندزفری</span>
+						</div>
+						<div className="category">
+							<img src="/images/categories/case-cover.png" alt="Case and cover category" />
+							<span>قاب و کاور</span>
+						</div>
+						<div className="category">
+							<img src="/images/categories/SIM-Card.png" alt="SIM card category" />
+						<span>سیمکارت</span>
+						</div>
+					</div>
 				</Container>
 			<Footer />
 		</>

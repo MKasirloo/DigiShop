@@ -12,6 +12,7 @@ footer {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    width: 100%;
 }
 
 .back-to-top {
@@ -111,7 +112,7 @@ footer {
 
 @media screen and (max-width: 1080px) {
     .footer-badges {
-        justify-content: center;
+        justify-content: flex-end;
     }
 }
 
@@ -122,8 +123,11 @@ footer {
         gap: 20px;
     }
     .footer-badges {
-        justify-content: flex-end;
         margin-left: 0;
         padding-left: 0;
+    }
+    .back-to-top {
+        font-size: small;
+        transform: scale(0.8);
     }
 }
