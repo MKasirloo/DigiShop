@@ -99,20 +99,20 @@
   z-index: -1;
 }
 
-.categoriesSectionTitle {
+.mainPageSectionTitle {
   margin: 40px 0;
   font-size: x-large;
   position: relative;
   padding: 8px;
-}
 
-.categoriesSectionTitle::before {
-  content: '';
-  position: absolute;
-  background: linear-gradient(to left, #004cff, #4d00ff, #c300ff);
-  width: 200px;
-  height: 4px;
-  bottom: 0;
+  &::before {
+    content: '';
+    position: absolute;
+    background: linear-gradient(to left, #004cff, #4d00ff, #c300ff);
+    width: 200px;
+    height: 4px;
+    bottom: 0;
+  }
 }
 
 .categoriesSection {
@@ -272,6 +272,20 @@
   font-size: 14px;
 }
 
+/* Brand carousel */
+
+.brandCarouselItem {
+  flex-shrink: 0;
+  width: 100px;
+  height: 100px;
+  padding: 15px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  img {
+    width: 100%;
+  }
+}
 
 @media screen and (max-width: 780px) {
 

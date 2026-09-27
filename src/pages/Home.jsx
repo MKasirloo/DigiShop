@@ -1,6 +1,7 @@
 import Container from "../components/Container";
 import Header from "../components/Header";
 import Footer from "../components/Footer";
+import * as Icons from '../assets/icons'
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation, Pagination, Autoplay, FreeMode } from "swiper/modules";
 
@@ -10,12 +11,12 @@ import "swiper/css/pagination";
 import "./Home.css";
 
 import products from '../data/products'
+import brands from "../data/brands"
 
 export default function Home() {
   return (
     <>
       <Header cartCount={0} />
-      <div className="header-fixer"></div>
       <Container>
         <Swiper
           modules={[Navigation, Pagination, Autoplay]}
@@ -94,7 +95,7 @@ export default function Home() {
             </div>
           </div>
         </div>
-        <div className="categoriesSectionTitle">
+        <div className="mainPageSectionTitle">
           <span>دسته بندی ها</span>
         </div>
         <div className="categoriesSection">
@@ -193,6 +194,31 @@ export default function Home() {
 						})}
 					</Swiper>
         </div>
+				<div className="mainPageSectionTitle">
+					<span>برند های برتر</span>
+				</div>
+				<Swiper
+					modules={[Autoplay]}
+					slidesPerView="auto"
+					speed={2000}
+					spaceBetween={20}
+					loop={true}
+					autoplay={{
+						delay: 0,
+						disableOnInteraction: false
+					}}
+					allowTouchMove={false}
+					className="brandCarousel"
+				>
+					{brands.map(b => {
+						console.log(b);
+						return(
+							<SwiperSlide className="brandCarouselItem">
+								<img src={b.image_src} alt={b.alt} />
+							</SwiperSlide>
+						);
+					})}
+				</Swiper>
       </Container>
       <Footer />
     </>
