@@ -40,6 +40,7 @@ footer {
 
 .footer-section {
     display: flex;
+    justify-content: space-between;
 }
 
 .footer-desc {
@@ -53,7 +54,7 @@ footer {
 .footer-badges {
     width: 40%;
     display: flex;
-    justify-content: space-between;
+    justify-content: flex-end;
     align-items: center;
     flex-wrap: wrap;
     gap: 10px;
@@ -62,7 +63,7 @@ footer {
 }
 
 .footer-badge {
-    width: 100px;
+    max-width: 100px;
     height: 150px;
     padding: 10px;
     display: flex;
@@ -111,9 +112,7 @@ footer {
 /* Responsive */
 
 @media screen and (max-width: 1080px) {
-    .footer-badges {
-        justify-content: flex-end;
-    }
+    /* TODO */
 }
 
 @media screen and (max-width: 780px) {
@@ -125,9 +124,19 @@ footer {
     .footer-badges {
         margin-left: 0;
         padding-left: 0;
+        flex-direction: column;
+        justify-content: flex-start;
+        align-items: flex-end;
     }
+
     .back-to-top {
-        font-size: small;
-        transform: scale(0.8);
+        font-size: x-small;
+        a {
+            padding: 8px;
+        }
+        svg {
+            width: 20px;
+            height: 20px;
+        }
     }
 }

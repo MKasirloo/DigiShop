@@ -2,7 +2,7 @@ import './ProductCard.css'
 
 export default function ProductGrid({ product }) {
   return(
-    <a href="#" className="product-card">
+    <a href="/single-product" className="product-card">
       <div className="product-card__info">
           <div className="product-card__img-container">
               <img src={product.image_src} />

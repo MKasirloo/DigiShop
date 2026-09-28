@@ -1,5 +1,14 @@
 @import url("./styles/fonts.css");
 
+:root {
+    --primary-color: #4d00ff;
+    --offer-color: #dd3d46;
+    --yellow: #ffdd00;
+    --text-primary: #242424;
+    --text-secondary: #6B6B6B;
+    --text-natural: #23254e;
+}
+
 * {
     font-family: Shabnam, sans-serif;
     margin: 0;
@@ -9,7 +18,11 @@
 
 a {
     text-decoration: none;
-    color: black;
+    color: var(--text-primary);
+}
+
+p {
+    color: var(--text-primary);
 }
 
 html {
@@ -19,4 +32,12 @@ html {
 body {
     overflow-x: hidden;
     scroll-behavior: smooth;
+}
+
+.textGreen {
+    color: green;
+}
+
+.textAccent {
+    color: #4d00ff;
 }

@@ -42,3 +42,21 @@
     src: url("../assets/fonts/Shabnam-Bold-FD.woff2") format("woff2");
     font-weight: 700;
 }
+
+@font-face {
+    font-family: IranSansX;
+    src: url("../assets/fonts/IRANSansXFaNum-Regular.woff2");
+    font-weight: 400;
+}
+
+@font-face {
+    font-family: IranSansX;
+    src: url("../assets/fonts/IRANSansXFaNum-Medium.woff2");
+    font-weight: 500;
+}
+
+@font-face {
+    font-family: IranSansX;
+    src: url("../assets/fonts/IRANSansXFaNum-Bold.woff2");
+    font-weight: 700;
+}

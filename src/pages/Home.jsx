@@ -168,7 +168,7 @@ export default function Home() {
 							if(p.discount_percent > 0) {
 								return(
 									<SwiperSlide className="offerCardSlide">
-										<a href="#" className="offer-card">
+										<a href="/single-product" className="offer-card">
 											<div className="offer-card__info">
 													<div className="offer-card__img-container">
 															<img src={p.image_src} />

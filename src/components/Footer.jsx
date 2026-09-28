@@ -7,12 +7,14 @@ export default function Footer() {
     <footer>
         <div className="footer-top">
             <p className="logo-footer">دیجی شاپ</p>
-            <button className="back-to-top">
-                <a href="#">
-                    بازگشت به بالا
-                    <ChevronUpIcon />
-                </a>
-            </button>
+            <div>
+                <button className="back-to-top">
+                    <a href="#">
+                        بازگشت به بالا
+                        <ChevronUpIcon />
+                    </a>
+                </button>
+            </div>
         </div>
         <div className="footer-section">
             <div className="footer-desc">
@@ -25,13 +27,7 @@ export default function Footer() {
                     <img src="https://khoshtipkocholo.ir/wp-content/uploads/2024/02/enamad-logo.ac482e80.jpeg" />
                 </div>
                 <div className="footer-badge">
-                    <img src="https://www.digikala.com/statics/img/png/kasbokar.webp" />
-                </div>
-                <div className="footer-badge">
                     <img src="https://www.digikala.com/statics/img/png/rezi.webp" />
-                </div>
-                <div className="footer-badge">
-                    <img src="https://www.digikala.com/statics/img/png/sapra.webp" />
                 </div>
             </div>
         </div>
