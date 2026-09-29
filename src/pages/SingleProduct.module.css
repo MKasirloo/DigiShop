@@ -180,6 +180,28 @@
   }
 }
 
+.brandContainer {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+
+  .brand {
+    display: flex;
+    gap: 8px;
+    align-items: center;
+    font-size: 14px;
+
+    .brandImage {
+      display: flex;
+      align-items: center;
+      width: 50px;
+      img {
+        width: 100%;
+      }
+    }
+  }
+}
+
 .colorTitle {
   margin: 10px 0;
 }

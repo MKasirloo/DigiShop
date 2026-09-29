@@ -9,9 +9,10 @@ import "swiper/css";
 import styles from "./SingleProduct.module.css";
 
 import products from "../data/products";
+import brands from "../data/brands"
 
 //Sample product:
-const product = products[0];
+const product = products[5];
 
 export default function SingleProduct() {
   const insuranceCost = product.price * 0.1;
@@ -171,6 +172,23 @@ export default function SingleProduct() {
               <span>.</span>
               <a href="#">{product.questions + " پرسش"}</a>
             </div>
+          </div>
+          <div className={styles.brandContainer}>
+            <p className={styles.brandContainerTitle}>
+              برند:
+            </p>
+            {brands.filter(b => (b.name === product.brand)).map(b => {
+              return (
+                <a href="#" className={styles.brand}>
+                  <p className={styles.brandName}>
+                    {b.name}
+                  </p>
+                  <div className={styles.brandImage}>
+                    <img src={b.image_src} alt={b.alt} />
+                  </div>
+                </a>
+              );
+            })}
           </div>
           <div className={styles.colorsContainer}>
             <p className={styles.colorTitle}>

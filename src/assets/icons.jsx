@@ -166,7 +166,7 @@ export function SnappPayIcon() {
   );
 }
 
-export function TomanIcon({ width }) {
+export function TomanIcon({ width = 20 }) {
   return(
     <div style={{ width: `${width}px` }}>
       <img src="/images/icons/Toman.png" alt="Toman" style={{ width: "100%"}} />
