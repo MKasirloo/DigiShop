@@ -1,14 +1,16 @@
 .productsWrapper {
   display: flex;
   flex-direction: row-reverse;
+  justify-content: space-between;
 }
 
 .productsContainer {
   width: 75%;
 }
 
-.filters {
-  width: 25%;
+.productFilters {
+  display: flex;
+  justify-content: center;
 }
 
 .orderByText {

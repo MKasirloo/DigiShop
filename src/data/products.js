@@ -257,7 +257,98 @@ const products = [
       { id: 5, name: "درگاه شارژ", body: "USB-C" },
       { id: 6, name: "قابلیت‌ها", body: "Transparency Mode و Adaptive Audio" }
     ]
-  }
+  },
+  {
+    id: 9,
+    name: "گوشی موبایل اپل مدل iPhone 14 Pro Max",
+    english_name: "Apple iPhone 14 Pro Max",
+    price: 125000000,
+    discount_percent: 0,
+    in_stock: true,
+    sold: 3276,
+    rating: 4.8,
+    comments: 472,
+    questions: 58,
+    brand: "Apple",
+    image_src: "/images/products/14-pro-max.png",
+    images: [
+      "/images/products/14-pro-max.png"
+    ],
+    colors: [
+      {
+        id: 1,
+        name: "بنفش تیره",
+        code: "#4b4158"
+      },
+      {
+        id: 2,
+        name: "مشکی",
+        code: "#1d1d1f"
+      },
+      {
+        id: 3,
+        name: "نقره ای",
+        code: "#e3e4e5"
+      },
+      {
+        id: 4,
+        name: "طلایی",
+        code: "#f4e4d0"
+      }
+    ],
+    key_features: [
+      {
+        id: 1,
+        name: "نمایشگر",
+        body: "6.7 اینچی Super Retina XDR OLED"
+      },
+      {
+        id: 2,
+        name: "پردازنده",
+        body: "Apple A16 Bionic"
+      },
+      {
+        id: 3,
+        name: "دوربین اصلی",
+        body: "سه‌گانه 48 مگاپیکسلی"
+      },
+      {
+        id: 4,
+        name: "دوربین تله‌فوتو",
+        body: "زوم اپتیکال 3 برابر"
+      },
+      {
+        id: 5,
+        name: "حافظه داخلی",
+        body: "128 / 256 / 512 گیگابایت و 1 ترابایت"
+      },
+      {
+        id: 6,
+        name: "شبکه",
+        body: "پشتیبانی از 5G"
+      },
+      {
+        id: 7,
+        name: "مقاومت",
+        body: "IP68 در برابر آب و گردوغبار"
+      },
+      {
+        id: 8,
+        name: "احراز هویت",
+        body: "Face ID"
+      },
+      {
+        id: 9,
+        name: "شارژ بی‌سیم",
+        body: "MagSafe و Qi"
+      },
+      {
+        id: 10,
+        name: "نرخ نوسازی",
+        body: "120 هرتز ProMotion"
+      }
+  ]
+}
 ];
 
 export default products;

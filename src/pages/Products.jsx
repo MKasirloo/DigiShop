@@ -40,7 +40,7 @@ export default function Products() {
   return (
     <>
       <Header />
-      <Container>
+      <>
 				<div className={`OrderListOverlay ${isOrderByClosed ? 'hidden' : ''}`} onClick={() => setIsOrderByClosed(true)}></div>
         <div className="productsWrapper">
           <div className="productsContainer">
@@ -99,14 +99,14 @@ export default function Products() {
 						</div>
             <ProductGrid products={filteredProducts} />
           </div>
-					<div className="productFilters">	
+					<div className="productFilters">
 						<ProductsFilter
 							products={products}
 							setFilteredProducts={setFilteredProducts}
 						/>
 					</div>
         </div>
-      </Container>
+      </>
       <Footer />
     </>
   );

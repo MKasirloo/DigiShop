@@ -13,9 +13,28 @@
   font-weight: 300;
   border: 1px solid #ddd;
   margin: -0.5px;
+  transition: box-shadow 0.2s ease;
+  position: relative;
+
+  &:hover {
+    box-shadow: 0px 2px 4px 2px #ccc;
+    z-index: 5;
+  }
+}
+
+.productCardDiscountBadge {
+  position: absolute;
+  left: 0;
+  top: 0;
+  padding: 4px 8px;
+  background-color: var(--offer-color);
+  color: white;
+  border-radius: 0 0 16px 0;
+  font-size: 12px;
 }
 
 .product-card__product-name {
+  font-weight: 500;
   margin: 12px 0px 8px 0px;
   line-height: 1.5rem;
 }
@@ -46,6 +65,11 @@
   gap: 6px;
 }
 
+.product-card__old-price {
+  color: var(--text-secondary);
+  text-decoration: line-through;
+}
+
 .product-card__offer-percent {
   background-color: #e93030;
   color: #fff;
@@ -58,6 +82,10 @@
   align-items: center;
   flex-direction: row-reverse;
   margin-top: auto;
+  span {
+    color: var(--text-natural);
+    font-weight: bold;
+  }
 }
 
 .product-card__price {
