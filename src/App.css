@@ -1,7 +1,10 @@
 @import url("./styles/fonts.css");
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 
 :root {
-    --primary-color: #4d00ff;
+    --primary-color: 77, 0, 255;
     --offer-color: #dd3d46;
     --yellow: #ffdd00;
     --text-primary: #242424;
@@ -14,6 +17,11 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+}
+
+*::selection {
+    background: #0d00ff;
+    color: #fff;
 }
 
 a {

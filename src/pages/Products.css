@@ -70,13 +70,69 @@
   gap: 8px;
 }
 
+.showFiltersButton {
+  display: none;
+}
+
 @media screen and (max-width: 1080px) {
+
   .productFilters {
-    display: none;
+    position: fixed;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    width: 300px;
+    transform: translateX(300px);
+    background-color: #fff;
+    transition: transform 0.2s ease;
   }
+
   .productsContainer {
     width: 100%;
   }
+
+  .productsContainerTop {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .showFiltersButton {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 6px;
+    max-height: 30px;
+    padding: 2px 10px;
+    margin: 0 8px;
+    border: none;
+    background-color: var(--primary-color);
+    color: white;
+    border-radius: 8px;
+
+    &:hover {
+      cursor: pointer;
+    }
+
+    p {
+      color: white;
+    }
+
+  }
+
+  .mobileFilterMenuOverlay.open {
+    display: block;
+    position: fixed;
+    inset: 0;
+    background: #00000050;
+    z-index: 10000;
+  }
+
+  .productFilters.open {
+    transform: translateX(0);
+    z-index: 10001;
+  }
+
 }
 
 @media screen and (max-width: 780px) {
@@ -88,7 +144,6 @@
     display: flex;
     justify-content: space-around;
     flex-direction: column;
-    /* gap: 20px; */
     transform: translate(-50%, -50%);
     z-index: 10000;
     border-radius: 8px;

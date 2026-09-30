@@ -1,22 +1,31 @@
+.mobileFilterMenuOverlay {
+  display: none;
+}
+
 .filters {
   width: fit-content;
   list-style: none;
-  margin-left: 10px;
 }
 
 .filter {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  overflow: hidden;
-  height: 40px;
   padding: 10px;
+  margin: 0 10px;
+  border-bottom: 1px solid #ccc;
+
+  &:last-child {
+    border-bottom: none;
+  }
+
+  .filterBody {
+    overflow: hidden;
+    height: 0;
+  }
 
   & > * {
     width: 100%;
   }
 
-  &.open {
+  &.open .filterBody {
     height: auto;
   }
 }
@@ -26,7 +35,6 @@
   justify-content: space-between;
   align-items: center;
   height: 40px;
-  border-bottom: 1px solid #ccc;
   svg {
     transition: transform 0.2s ease;
   }
@@ -42,12 +50,9 @@
   }
 }
 
-.filterBody {
-  padding: 10px;
-}
-
 .inStockOnly {
   display: flex;
+  justify-content: space-between;
   align-items: center;
   gap: 8px;
 }
@@ -82,6 +87,15 @@
     &::after {
       left: 22px;
     }
+  }
+}
+
+.offerOnly {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  .switch.on {
+    background-color: var(--offer-color);
   }
 }
 
@@ -139,7 +153,8 @@
     width: 100%;
   }
 
-  & > *::-webkit-slider-thumb {
+  & > *::-webkit-slider-thumb,
+  & > *::-moz-range-thumb {
     pointer-events: auto;
     appearance: none;
     -webkit-appearance: none;
@@ -147,5 +162,6 @@
     height: 20px;
     border-radius: 100%;
     background-color: var(--primary-color);
+    cursor: pointer;
   }
 }

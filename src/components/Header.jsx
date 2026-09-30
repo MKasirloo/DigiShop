@@ -40,8 +40,10 @@ export default function Header({ cartCount }) {
           <div className="navbar-top-left">
             <div className="login-and-cart-container">
               <button className="cart">
-                <Icons.CartIcon />
-                <span className="cart-count-badge">{cartCount}</span>
+                <a href="/cart">
+                  <Icons.CartIcon />
+                  <span className="cart-count-badge">{cartCount}</span>
+                </a>
               </button>
               <span className="login-and-cart-container__divider">|</span>
               <button className="login">
