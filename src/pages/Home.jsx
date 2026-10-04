@@ -17,38 +17,38 @@ export default function Home() {
   return (
     <>
       <Header cartCount={0} />
+      <Swiper
+        modules={[Navigation, Pagination, Autoplay]}
+        navigation
+        pagination={{ clickable: true }}
+        autoplay={{
+          delay: 2500,
+          disableOnInteraction: false,
+        }}
+        loop={true}
+        slidesPerView={1}
+        className="mainSlider"
+      >
+        <SwiperSlide>
+          <div className="mainSiderSlideContainer">
+            <img
+              src="/images/posters/iPhone-13-sale.png"
+              alt="iPhone 13 sale"
+            />
+          </div>
+        </SwiperSlide>
+        <SwiperSlide>
+          <div className="mainSiderSlideContainer">
+            <img src="/images/posters/iPhone-14.png" alt="iPhone 14 show" />
+          </div>
+        </SwiperSlide>
+        <SwiperSlide>
+          <div className="mainSiderSlideContainer">
+            <img src="/images/posters/Gifts.png" alt="Gifts" />
+          </div>
+        </SwiperSlide>
+      </Swiper>
       <Container>
-        <Swiper
-          modules={[Navigation, Pagination, Autoplay]}
-          navigation
-          pagination={{ clickable: true }}
-          autoplay={{
-            delay: 2500,
-            disableOnInteraction: false,
-          }}
-          loop={true}
-          slidesPerView={1}
-          className="mainSlider"
-        >
-          <SwiperSlide>
-            <div className="mainSiderSlideContainer">
-              <img
-                src="/images/posters/iPhone-13-sale.png"
-                alt="iPhone 13 sale"
-              />
-            </div>
-          </SwiperSlide>
-          <SwiperSlide>
-            <div className="mainSiderSlideContainer">
-              <img src="/images/posters/iPhone-14.png" alt="iPhone 14 show" />
-            </div>
-          </SwiperSlide>
-          <SwiperSlide>
-            <div className="mainSiderSlideContainer">
-              <img src="/images/posters/Gifts.png" alt="Gifts" />
-            </div>
-          </SwiperSlide>
-        </Swiper>
         {/* Stories section */}
         <div className="storiesSection">
           <div className="storyContainer">
@@ -211,7 +211,6 @@ export default function Home() {
 					className="brandCarousel"
 				>
 					{brands.map(b => {
-						console.log(b);
 						return(
 							<SwiperSlide className="brandCarouselItem">
 								<img src={b.image_src} alt={b.alt} />

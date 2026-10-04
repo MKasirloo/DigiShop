@@ -7,6 +7,9 @@ import Login from './pages/Login'
 import SingleProduct from './pages/SingleProduct'
 import Cart from './pages/Cart'
 import Shipping from './pages/Shipping'
+import Payment from './pages/Payment'
+import PaymentSucceed from './pages/PaymentSucceed'
+import Verification from './pages/Verification'
 
 function App() {
   return (
@@ -18,6 +21,9 @@ function App() {
         <Route path="/single-product" element={<SingleProduct />} />
         <Route path="/cart" element={<Cart />} />
         <Route path="/shipping" element={<Shipping />} />
+        <Route path="/payment" element={<Payment />} />
+        <Route path="/payment-succeed" element={<PaymentSucceed />} />
+        <Route path="/verification" element={<Verification />} />
       </Routes>
     </BrowserRouter>
   );

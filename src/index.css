@@ -1,0 +1,38 @@
+@import url("./styles/fonts.css");
+@import "tailwindcss";
+
+:root {
+    --primary-color: #4d00ff;
+    --offer-color: #dd3d46;
+    --yellow: #ffdd00;
+    --text-primary: #242424;
+    --text-secondary: #6B6B6B;
+    --text-natural: #23254e;
+    --text-gray: #5c5c5c;
+}
+
+* {
+    font-family: Shabnam, sans-serif;
+    box-sizing: border-box;
+}
+
+*::selection {
+    background: #0d00ff;
+    color: #fff;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+button:hover {
+    cursor: pointer;
+}
+
+.textGreen {
+    color: green;
+}
+
+.textAccent {
+    color: #4d00ff;
+}

@@ -2,7 +2,7 @@ import { useState } from "react";
 import Header from "../components/Header";
 import Footer from "../components/Footer";
 import Container from "../components/Container";
-import { ChevronDownIcon, ClockIcon, ShippingIcon, TomanThinIcon, TomanIcon } from "../assets/icons";
+import { ChevronDownIcon, ClockIcon, ShippingIcon, TomanThinIcon, TomanIcon, CheckIcon, ChevronRightIcon } from "../assets/icons";
 
 import addresses from "../data/addresses";
 import cartProducts from "../data/cart";
@@ -34,8 +34,41 @@ export default function Shipping() {
     <>
       <Header />
       <Container>
-        <div className="flex gap-4 *:p-4">
-          <div className="flex-1 min-w-0 *:py-4 border border-gray-300 rounded-lg">
+      <div className="p-4 border border-gray-300 rounded-lg mb-4">
+          <div className="flex justify-center relative p-2">
+            <a href="/cart" className="flex gap-1 items-center absolute right-0 top-1/2 -translate-y-1/2 max-lg:text-sm">
+              <ChevronRightIcon />
+              سبد خرید
+            </a>
+            <img src="/images/logo.png" alt="Digishop logo" className="h-8 max-md:invisible" />
+          </div>
+          <div className="flex justify-center items-center p-4">
+            <div className="relative">
+              <div className="w-5 h-5 bg-(--primary-color) rounded-full text-white flex items-center justify-center">
+                <CheckIcon className="w-4 h-4" />
+              </div>
+              <div className="absolute left-1/2 top-full -translate-x-1/2 text-xs text-center text-nowrap pt-2 text-(--text-secondary)">
+                سبد خرید
+              </div>
+            </div>
+            <div className="w-10 h-0.5 bg-(--primary-color) flex"></div>
+            <div className="relative">
+            <div className="w-5 h-5 border-3 border-(--primary-color) rounded-full text-white flex items-center justify-center"></div>
+              <div className="absolute left-1/2 top-full -translate-x-1/2 text-xs text-center text-nowrap pt-2 text-(--text-secondary)">
+                ارسال
+              </div>
+            </div>
+            <div className="w-10 h-0.5 bg-(--primary-color) flex"></div>
+            <div className="relative">
+              <div className="w-5 h-5 border-3 border-(--primary-color) rounded-full text-white flex items-center justify-center"></div>
+              <div className="absolute left-1/2 top-full -translate-x-1/2 text-xs text-center text-nowrap pt-2 text-(--text-secondary)">
+                پرداخت
+              </div>
+            </div>
+          </div>
+        </div>
+        <div className="flex gap-4 *:p-4 max-md:flex-wrap">
+          <div className="flex-1 *:py-4 border border-gray-300 rounded-lg min-w-115">
             <div className="flex border border-(--primary-color) rounded-lg">
               <div className="flex items-center px-2">
                 <ShippingIcon />
@@ -147,10 +180,10 @@ export default function Shipping() {
               </div>
             </div>
           </div>
-          <div className="h-fit w-75 border border-gray-300 rounded-lg divide-y divide-gray-200">
+          <div className="sticky top-20 h-fit md:w-75 w-full border border-gray-300 rounded-lg divide-y divide-gray-200">
             <div className="p-4 flex justify-between items-center text-(--text-secondary)">
               <div className="text-sm">
-                قیمت کالا ها:
+                هزینه کالا ها:
               </div>
               <div className="flex gap-0.5">
                 <div className="text-sm">
@@ -182,9 +215,11 @@ export default function Shipping() {
               </div>
             </div>
             <div className="px-2 py-4 flex justify-center">
-              <button className="bg-(--primary-color) text-white w-full p-2 rounded-lg">
-                اقدام به پرداخت
-              </button>
+              <a href="/payment" className="w-full">
+                <button className="bg-(--primary-color) text-white w-full p-2 rounded-lg">
+                  اقدام به پرداخت
+                </button>
+              </a>
             </div>
           </div>
         </div>

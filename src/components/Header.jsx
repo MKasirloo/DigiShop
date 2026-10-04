@@ -47,7 +47,7 @@ export default function Header({ cartCount }) {
               </button>
               <span className="login-and-cart-container__divider">|</span>
               <button className="login">
-                <a href="/login" className="login-button-container">
+                <a href="/login" className="login-button-container font-normal">
                   <Icons.LoginIcon />
                   <span>ورود</span>
                   <span style={{ fontWeight: 400 }}>|</span>
@@ -66,9 +66,50 @@ export default function Header({ cartCount }) {
         </div>
         <div className={`navbar-bottom ${isMobileMenuOpen && "open"}`}>
           <ul className="navbar-bottom__list">
-            <li className="navbar-bottom__items">
-              <Icons.MenuIcon />
-              دسته بندی محصولات
+            <li className="navbar-bottom__items group">
+              <div className="flex gap-1 items-center relative">
+                <Icons.MenuIcon />
+                دسته بندی محصولات
+              </div>
+              <div className="invisible absolute bg-gray-100 text-(--text-primary) w-50 h-fit top-full right-0 z-10 opacity-0 transition-opacity duration-200 rounded-b-lg border border-gray-300
+                group-hover:opacity-100
+                group-hover:visible
+              ">
+                <ul className="*:hover:text-(--primary-color) *:hover:bg-white *:flex *:gap-1 *:items-center *:py-3 *:px-2">
+                  <li >
+                    <Icons.MobileIcon />
+                    موبایل
+                  </li>
+                  <li>
+                    <Icons.TabletIcon />
+                    تبلت
+                  </li>
+                  <li>
+                    <Icons.ControllerIcon />
+                    کنسول بازی
+                  </li>
+                  <li>
+                    <Icons.LaptopIcon />
+                    لپ تاپ
+                  </li>
+                  <li>
+                    <Icons.WatchIcon />
+                    ساعت هوشمند
+                  </li>
+                  <li>
+                    <Icons.AirpodsIcon />
+                    هندزفری
+                  </li>
+                  <li>
+                    <Icons.MobileCoverIcon />
+                    قاب و کاور گوشی
+                  </li>
+                  <li>
+                    <Icons.SIMIcon />
+                    سیمکارت
+                  </li>
+                </ul>
+              </div>
             </li>
             <li
               className="navbar-bottom__first-divider"

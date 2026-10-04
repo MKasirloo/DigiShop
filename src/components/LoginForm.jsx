@@ -43,9 +43,11 @@ export default function LoginForm() {
               />
               <label htmlFor="phoneNumber" className={styles.mobileNumberLable}>شماره موبایل...</label>
             </div>
-            <button className={styles.loginButton} disabled={phoneNumber === ''}>
-              ورود به دیجی شاپ
-            </button>
+            <a href="/verification">
+              <button className={styles.loginButton} disabled={phoneNumber === ''}>
+                ورود به دیجی شاپ
+              </button>
+            </a>
           </form>
 
           <div className={styles.policyWrapper}>
