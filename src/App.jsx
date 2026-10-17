@@ -10,6 +10,10 @@ import Shipping from './pages/Shipping'
 import Payment from './pages/Payment'
 import PaymentSucceed from './pages/PaymentSucceed'
 import Verification from './pages/Verification'
+import Profile from './pages/Profile/Profile'
+import Orders from './pages/Profile/Orders'
+import Wishlist from './pages/Profile/Whislist'
+import AccountInfo from './pages/Profile/AccountInfo'
 
 function App() {
   return (
@@ -24,6 +28,10 @@ function App() {
         <Route path="/payment" element={<Payment />} />
         <Route path="/payment-succeed" element={<PaymentSucceed />} />
         <Route path="/verification" element={<Verification />} />
+        <Route path="/profile" element={<Profile />} />
+        <Route path="/profile/orders" element={<Orders />} />
+        <Route path="/profile/wishlist" element={<Wishlist />} />
+        <Route path="/profile/account" element={<AccountInfo />} />
       </Routes>
     </BrowserRouter>
   );

@@ -21,12 +21,10 @@ export default function Header({ cartCount }) {
         <div className="navbar-top">
           <div className="navbar-top-right">
             <a href="/" className="logo">
-              <img src="images/logo.png" />
-              <img src="images/logo-mini.png" />
+              <img src="/images/logo.png" />
+              <img src="/images/logo-mini.png" />
             </a>
-            <div
-              className="search-box"
-              >
+            <div className="search-box">
               <Icons.SearchIcon />
               <input
                 id="search-input"
@@ -39,13 +37,15 @@ export default function Header({ cartCount }) {
           </div>
           <div className="navbar-top-left">
             <div className="login-and-cart-container">
-              <button className="cart">
-                <a href="/cart">
+              <a href="/cart">
+                <button className="cart">
                   <Icons.CartIcon />
                   <span className="cart-count-badge">{cartCount}</span>
-                </a>
-              </button>
+                </button>
+              </a>
               <span className="login-and-cart-container__divider">|</span>
+
+              {/* Fix here!!!!!!!!!!!!!!!!!!!!!!!!!! */}
               <button className="login">
                 <a href="/login" className="login-button-container font-normal">
                   <Icons.LoginIcon />
@@ -71,12 +71,14 @@ export default function Header({ cartCount }) {
                 <Icons.MenuIcon />
                 دسته بندی محصولات
               </div>
-              <div className="invisible absolute bg-gray-100 text-(--text-primary) w-50 h-fit top-full right-0 z-10 opacity-0 transition-opacity duration-200 rounded-b-lg border border-gray-300
+              <div
+                className="invisible absolute bg-gray-100 text-(--text-primary) w-50 h-fit top-full right-0 z-10 opacity-0 transition-opacity duration-200 rounded-b-lg border border-gray-300
                 group-hover:opacity-100
                 group-hover:visible
-              ">
+              "
+              >
                 <ul className="*:hover:text-(--primary-color) *:hover:bg-white *:flex *:gap-1 *:items-center *:py-3 *:px-2">
-                  <li >
+                  <li>
                     <Icons.MobileIcon />
                     موبایل
                   </li>

@@ -26,11 +26,6 @@
   margin-right: 8px !important;
 }
 
-.swiper-button-next svg, .swiper-button-prev svg {
-  width: 30px;
-  height: 30px;
-}
-
 .swiper-pagination-bullet.swiper-pagination-bullet-active {
   background-color: #fff;
   box-shadow: 0px 1px 4px 1px #00000050;
@@ -174,13 +169,20 @@
 .swiper-button-next, .swiper-button-prev {
   opacity: 1;
   transition: opacity 0.2s ease;
+  height: 40px;
+  width: 40px;
+  svg {
+    width: 25px;
+    height: 25px;
+  }
+}
+
+.swiper-button-disabled {
+  opacity: 0 !important;
 }
 
 .offer-cards {
   width: 100%;
-  .swiper-button-disabled {
-    opacity: 0;
-  }
 }
 
 .offerCardSlide {
@@ -284,7 +286,12 @@
   }
 
   .swiper-button-next, .swiper-button-prev {
-    display: none;
+    width: 30px;
+    height: 30px;
+    svg {
+      width: 20px;
+      height: 20px;
+    }
   }
 
   .categoriesSection {

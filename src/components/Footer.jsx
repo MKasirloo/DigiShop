@@ -23,9 +23,9 @@ export default function Footer() {
                 از موبایل و لپ‌تاپ گرفته تا تبلت، کنسول، ساعت هوشمند و لوازم جانبی؛ انتخاب کنید و با خیال راحت خرید کنید.
             </div>
             <div className="footer-badges">
-                <div className="footer-badge">
+                {/* <div className="footer-badge">
                     <img src="https://khoshtipkocholo.ir/wp-content/uploads/2024/02/enamad-logo.ac482e80.jpeg" />
-                </div>
+                </div> */}
                 <div className="footer-badge">
                     <img src="https://www.digikala.com/statics/img/png/rezi.webp" />
                 </div>

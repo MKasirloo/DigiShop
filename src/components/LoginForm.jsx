@@ -4,8 +4,16 @@ import { ChevronRightIcon } from "../assets/icons";
 
 export default function LoginForm() {
   const [phoneNumber, setPhoneNumber] = useState('');
+  const [isOK, setIsOK] = useState(false);
+
   function onPhoneNumberChange(e) {
     setPhoneNumber(e.target.value);
+    if(e.target.value[0] === '0' && e.target.value[1] === '9' && e.target.value.length === 11) {
+      setIsOK(true);
+    }
+    else {
+      setIsOK(false);
+    }
   }
 
   return (
@@ -39,16 +47,15 @@ export default function LoginForm() {
                 onChange={onPhoneNumberChange}
                 maxLength={11}
                 minLength={11}
-                
               />
-              <label htmlFor="phoneNumber" className={styles.mobileNumberLable}>شماره موبایل...</label>
+              <label htmlFor="phoneNumber" className={`${styles.mobileNumberLabel} ${phoneNumber !== '' ? styles.active : ''}`}>شماره موبایل...</label>
             </div>
-            <a href="/verification">
-              <button className={styles.loginButton} disabled={phoneNumber === ''}>
-                ورود به دیجی شاپ
-              </button>
-            </a>
           </form>
+          <a href="/verification" className="block w-full h-full">
+            <button className={`${styles.loginButton} w-full`} disabled={!isOK}>
+              ورود به دیجی شاپ
+            </button>
+          </a>
 
           <div className={styles.policyWrapper}>
             <div className={styles.policy}>

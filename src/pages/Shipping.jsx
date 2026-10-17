@@ -3,6 +3,11 @@ import Header from "../components/Header";
 import Footer from "../components/Footer";
 import Container from "../components/Container";
 import { ChevronDownIcon, ClockIcon, ShippingIcon, TomanThinIcon, TomanIcon, CheckIcon, ChevronRightIcon } from "../assets/icons";
+import { Swiper, SwiperSlide } from "swiper/react";
+import { Navigation, FreeMode } from "swiper/modules";
+
+import "swiper/css";
+import "swiper/css/navigation";
 
 import addresses from "../data/addresses";
 import cartProducts from "../data/cart";
@@ -15,7 +20,7 @@ export default function Shipping() {
   });
   const shippingDays = [];
 
-  for (let i = 1; i <= 11; i++) {
+  for (let i = 1; i <= 10; i++) {
     const date = new Date();
     date.setDate(date.getDate() + i);
     const parts = fromatter.formatToParts(date);
@@ -34,7 +39,7 @@ export default function Shipping() {
     <>
       <Header />
       <Container>
-      <div className="p-4 border border-gray-300 rounded-lg mb-4">
+        <div className="p-4 border border-gray-300 rounded-lg mb-4">
           <div className="flex justify-center relative p-2">
             <a href="/cart" className="flex gap-1 items-center absolute right-0 top-1/2 -translate-y-1/2 max-lg:text-sm">
               <ChevronRightIcon />
@@ -68,12 +73,12 @@ export default function Shipping() {
           </div>
         </div>
         <div className="flex gap-4 *:p-4 max-md:flex-wrap">
-          <div className="flex-1 *:py-4 border border-gray-300 rounded-lg min-w-115">
+          <div className="flex-1 *:py-4 border border-gray-300 rounded-lg overflow-auto">
             <div className="flex border border-(--primary-color) rounded-lg">
               <div className="flex items-center px-2">
                 <ShippingIcon />
               </div>
-              <div className="flex-1 px-4 py-2">
+              <div className="flex-1 px-4 py-2 max-md:text-sm">
                 <div className="flex justify-between max-md:w-full text-(--primary-color)">
                   <div>ارسال به آدرس انتخاب شده</div>
                   <button className="flex gap-1 text-(--primary-color)">
@@ -115,34 +120,43 @@ export default function Shipping() {
                   ارسال سریع دیجی شاپ!
                 </div>
               </div>
-              {/* Swiper THIS!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! */}
-              <div className="flex gap-8 mt-2 overflow-auto p-2">
-                {shippingDays.map((d) => {
-                  return (
-                    <div
-                      key={d.id}
-                      onClick={() => setShippingDateId(d.id)}
-                      className={`w-20 h-28 py-2 flex shrink-0 flex-col justify-between items-center rounded-lg hover:cursor-pointer transition-all duration-100
-                      ${
-                        shippingDateId === d.id
-                          ? "bg-(--primary-color) text-white! shadow-md-(--primary-color)"
-                          : "bg-[#f8f8f8]"
-                      }`}
-                    >
-                      <div>{d.weekday}</div>
-                      <div className="text-2xl">{d.day}</div>
-                      <div
-                        className={`text-sm ${
-                          shippingDateId !== d.id
-                            ? "text-(--text-secondary)"
-                            : ""
-                        }`}
-                      >
-                        {d.month}
-                      </div>
-                    </div>
-                  );
-                })}
+              <div className="mt-2 p-2">
+                <Swiper
+                  modules={[Navigation, FreeMode]}
+                  navigation
+                  freeMode={true}
+                  slidesPerView="auto"
+                  spaceBetween={32}
+                >
+                  {shippingDays.map((d) => {
+                    return (
+                      <SwiperSlide className="w-fit!">
+                        <div
+                          key={d.id}
+                          onClick={() => setShippingDateId(d.id)}
+                          className={`w-20 h-28 py-2 flex shrink-0 flex-col justify-between items-center rounded-lg hover:cursor-pointer transition-all duration-100
+                          ${
+                            shippingDateId === d.id
+                              ? "bg-(--primary-color) text-white! shadow-md-(--primary-color)"
+                              : "bg-[#f8f8f8]"
+                          }`}
+                        >
+                          <div>{d.weekday}</div>
+                          <div className="text-2xl">{d.day}</div>
+                          <div
+                            className={`text-sm ${
+                              shippingDateId !== d.id
+                                ? "text-(--text-secondary)"
+                                : ""
+                            }`}
+                          >
+                            {d.month}
+                          </div>
+                        </div>
+                      </SwiperSlide>
+                    );
+                  })}
+                </Swiper>
               </div>
               <div className="my-4 px-2 border-y border-gray-300">
                 <button
