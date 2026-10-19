@@ -24,7 +24,7 @@ export default function Header({ cartCount }) {
               <img src="/images/logo.png" />
               <img src="/images/logo-mini.png" />
             </a>
-            <div className="search-box">
+            <div className="search-box relative text-gray-500! hover:bg-gray-200! focus-within:bg-gray-200! transition-colors">
               <Icons.SearchIcon />
               <input
                 id="search-input"
@@ -32,18 +32,22 @@ export default function Header({ cartCount }) {
                 type="text"
                 placeholder="جستجو در محصولات..."
                 onChange={onSearchInputChange}
+                className="placeholder:text-gray-500"
               />
+              {searchInput !== '' && (
+                <button onClick={() => setSearchInput('')} className="absolute left-2 rounded-md bg-red-200 text-red-500"><Icons.CrossIcon /></button>
+              )}
             </div>
           </div>
           <div className="navbar-top-left">
-            <div className="login-and-cart-container">
+            <div className="login-and-cart-container whitespace-nowrap">
               <a href="/cart">
                 <button className="cart">
-                  <Icons.CartIcon />
+                  <Icons.CartIcon className="w-7 h-7" />
                   <span className="cart-count-badge">{cartCount}</span>
                 </button>
               </a>
-              <span className="login-and-cart-container__divider">|</span>
+              <div className="w-px h-6 bg-gray-200 rounded-full"></div>
 
               {/* Fix here!!!!!!!!!!!!!!!!!!!!!!!!!! */}
               <button className="login">
@@ -119,7 +123,7 @@ export default function Header({ cartCount }) {
             >
               |
             </li>
-            <li className="navbar-bottom__items">
+            <li className="navbar-bottom__items hover:text-red-500! hover:after:bg-red-500!">
               <Icons.SaleIcon />
               فروش ویژه!
             </li>

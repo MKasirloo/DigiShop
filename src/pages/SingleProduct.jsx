@@ -231,9 +231,9 @@ export default function SingleProduct() {
             <div className={styles.insuranceTitle}>
               <span className={styles.insuranceTitleIcon}>
                 {hasInsurance ? (
-                  <Icons.CircleCheckIcon color={"green"} />
+                  <Icons.CircleCheckIcon className="text-green" />
                 ) : (
-                  <Icons.ShieldIcon color={"#4d00ff"} />
+                  <Icons.ShieldIcon className="text-(--primary-color)" />
                 )}
               </span>
               <span>

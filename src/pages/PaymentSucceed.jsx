@@ -4,70 +4,84 @@ import Container from "../components/Container";
 import { CheckIcon, TomanIcon } from "../assets/icons";
 
 export default function PaymentSucceed() {
-  return(
+  const orderDetails = [
+    { label: "کد رهگیری سفارش", value: "#12345" },
+    { label: "تعداد کالاها", value: "4 کالا" },
+    { label: "زمان ارسال", value: "پنجشنبه 12 مهر، ساعت 9 تا 17" },
+  ];
+
+  return (
     <>
       <Header />
       <Container>
-        <div className="flex justify-center w-full max-md:mt-4 mt-10">
-          <div className="p-4 flex flex-col items-center w-full md:w-100 rounded-lg shadow-md shadow-green-700/50">
-            <div className="flex gap-4 items-center w-fit h-20 my-4">
-              <p className="text-3xl font-[Lalezar]! text-green-700">
-                پرداخت موفق
-              </p>
-              <div className="flex justify-center items-center text-white w-16 h-16 bg-linear-to-bl from-green-400 to-green-700 rounded-full">
-                <CheckIcon className="w-full h-full" />
+        <div className="flex justify-center w-full px-3 py-8 md:py-14">
+          <div className="w-full max-w-md overflow-hidden rounded-2xl border border-gray-200 bg-white shadow-lg shadow-green-900/5">
+            <div className="flex flex-col items-center bg-green-50 px-5 py-8">
+              <div className="flex h-20 w-20 items-center justify-center rounded-full bg-linear-to-bl from-green-400 to-green-700 text-white shadow-md shadow-green-700/20">
+                <CheckIcon className="w-15 h-15" />
               </div>
+              <h1 className="mt-5 text-2xl font-[Lalezar]! text-green-700">
+                پرداخت موفق
+              </h1>
+              <p className="mt-2 text-center text-sm leading-6 text-green-800">
+                پرداخت شما با موفقیت انجام شد و سفارش شما ثبت گردید.
+              </p>
             </div>
-            <div className="w-full border-y border-gray-300">
-              <ul className="divide-dashed divide-y divide-gray-300">
-                <li className="flex justify-between w-full text-sm py-2 px-1 text-neutral-800">
-                  <div>
-                    کد رهگیری سفارش:
+
+            <div className="p-5 md:p-6">
+              <div className="mb-4 flex items-center justify-between">
+                <h2 className="font-bold text-(--text-natural)">
+                  جزئیات سفارش
+                </h2>
+                <span className="rounded-full bg-green-50 px-3 py-1 text-xs text-green-700">
+                  ثبت شده
+                </span>
+              </div>
+
+              <div className="divide-y divide-dashed divide-gray-200 border-y border-gray-200">
+                {orderDetails.map((item) => (
+                  <div
+                    key={item.label}
+                    className="flex items-start justify-between gap-3 py-3 text-sm"
+                  >
+                    <span className="shrink-0 text-(--text-secondary)">
+                      {item.label}
+                    </span>
+                    <span className="text-left leading-6 text-(--text-natural)">
+                      {item.value}
+                    </span>
                   </div>
-                  <div>
-                    #12345
-                  </div>
-                </li>
-                <li className="flex justify-between w-full text-sm py-2 px-1 text-neutral-800">
-                  <div>
-                    تعداد کالا ها:
-                  </div>
-                  <div>
-                    4 کالا
-                  </div>
-                </li>
-                <li className="flex justify-between w-full text-sm py-2 px-1 text-neutral-800">
-                  <div>
-                    زمان ارسال:
-                  </div>
-                  <div>
-                    پنجشنبه 12 مهر ساعت 9 تا 17
-                  </div>
-                </li>
-                <li className="flex justify-between w-full text-sm py-2 px-1 text-(--text-natural)">
-                  <div className="font-bold">
-                    مبلغ نهایی:
-                  </div>
-                  <div className="flex gap-1 items-center font-bold">
+                ))}
+
+                <div className="flex items-center justify-between gap-3 py-4">
+                  <span className="font-bold text-(--text-natural)">
+                    مبلغ نهایی
+                  </span>
+                  <span className="flex items-center gap-1 text-lg font-bold text-green-700">
                     399,657,000
-                    <TomanIcon className="w-5 h-5" />
-                  </div>
-                </li>
-              </ul>
-            </div>
-            <div className="w-full mt-4">
-              <a href="/products">
-                <button className="py-2 w-full rounded-lg bg-green-700 text-white">
+                    <TomanIcon className="h-5 w-5" />
+                  </span>
+                </div>
+              </div>
+
+              <div className="mt-5 flex flex-col gap-3">
+                <a
+                  href="/products"
+                  className="flex w-full items-center justify-center rounded-xl bg-green-700 px-4 py-3 text-sm font-medium text-white transition-colors hover:bg-green-800"
+                >
                   بازگشت به فروشگاه
-                </button>
-              </a>
-            </div>
-            <div className="w-full mt-2">
-              <a href="/products">
-                <button className="py-2 w-full rounded-lg border-2 border-green-700 text-green-700">
+                </a>
+                <a
+                  href="/profile/orders"
+                  className="flex w-full items-center justify-center rounded-xl border border-green-700 px-4 py-3 text-sm font-medium text-green-700 transition-colors hover:bg-green-50"
+                >
                   پیگیری سفارش
-                </button>
-              </a>
+                </a>
+              </div>
+
+              <p className="mt-4 text-center text-xs leading-6 text-(--text-secondary)">
+                لطفاً کد رهگیری سفارش را برای مراجعات بعدی نگهداری کنید.
+              </p>
             </div>
           </div>
         </div>

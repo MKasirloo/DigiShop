@@ -70,7 +70,7 @@ export default function Verification() {
               ))}
             </div>
             <div className="mb-6">
-              <a href="/profile" className="w-full">
+              <a href="/profile/dashboard" className="w-full">
                 <button className="w-full bg-(--primary-color) text-white py-2 rounded-lg">
                   تأیید کد
                 </button>

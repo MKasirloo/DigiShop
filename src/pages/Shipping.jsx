@@ -1,8 +1,18 @@
+
 import { useState } from "react";
 import Header from "../components/Header";
 import Footer from "../components/Footer";
 import Container from "../components/Container";
-import { ChevronDownIcon, ClockIcon, ShippingIcon, TomanThinIcon, TomanIcon, CheckIcon, ChevronRightIcon } from "../assets/icons";
+import {
+  ChevronDownIcon,
+  ClockIcon,
+  ShippingIcon,
+  TomanThinIcon,
+  TomanIcon,
+  CheckIcon,
+  ChevronRightIcon,
+  CrossIcon,
+} from "../assets/icons";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation, FreeMode } from "swiper/modules";
 
@@ -13,17 +23,20 @@ import addresses from "../data/addresses";
 import cartProducts from "../data/cart";
 
 export default function Shipping() {
-  const fromatter = new Intl.DateTimeFormat("fa-IR-u-ca-persian", {
+  const formatter = new Intl.DateTimeFormat("fa-IR-u-ca-persian", {
     weekday: "long",
     day: "numeric",
     month: "long",
   });
+
   const shippingDays = [];
 
   for (let i = 1; i <= 10; i++) {
     const date = new Date();
     date.setDate(date.getDate() + i);
-    const parts = fromatter.formatToParts(date);
+
+    const parts = formatter.formatToParts(date);
+
     shippingDays.push({
       id: i,
       weekday: parts.find((p) => p.type === "weekday").value,
@@ -33,204 +46,264 @@ export default function Shipping() {
   }
 
   const [addressIndex, setAddressIndex] = useState(0);
+  const [isAddressModalOpen, setIsAddressModalOpen] = useState(false);
   const [shippingDateId, setShippingDateId] = useState(1);
   const [shippingTime, setShippingTime] = useState("morning");
+
+  const openAddressModal = () => {
+    setAddressIndex(addressIndex);
+    setIsAddressModalOpen(true);
+  };
+
+  const closeAddressModal = () => {
+    setIsAddressModalOpen(false);
+  };
+
   return (
     <>
       <Header />
+
       <Container>
-        <div className="p-4 border border-gray-300 rounded-lg mb-4">
-          <div className="flex justify-center relative p-2">
-            <a href="/cart" className="flex gap-1 items-center absolute right-0 top-1/2 -translate-y-1/2 max-lg:text-sm">
+        <div className="mb-4 rounded-lg border border-gray-300 p-4">
+          <div className="relative flex justify-center p-2">
+            <a
+              href="/cart"
+              className="absolute right-0 top-1/2 flex -translate-y-1/2 items-center gap-1 max-lg:text-sm"
+            >
               <ChevronRightIcon />
               سبد خرید
             </a>
-            <img src="/images/logo.png" alt="Digishop logo" className="h-8 max-md:invisible" />
+
+            <img
+              src="/images/logo.png"
+              alt="Digishop logo"
+              className="h-8 max-md:invisible"
+            />
           </div>
-          <div className="flex justify-center items-center p-4">
+
+          <div className="flex items-center justify-center p-4">
             <div className="relative">
-              <div className="w-5 h-5 bg-(--primary-color) rounded-full text-white flex items-center justify-center">
-                <CheckIcon className="w-4 h-4" />
+              <div className="flex h-5 w-5 items-center justify-center rounded-full bg-(--primary-color) text-white">
+                <CheckIcon className="h-4 w-4" />
               </div>
-              <div className="absolute left-1/2 top-full -translate-x-1/2 text-xs text-center text-nowrap pt-2 text-(--text-secondary)">
+              <div className="absolute left-1/2 top-full -translate-x-1/2 pt-2 text-center text-xs text-nowrap text-(--text-secondary)">
                 سبد خرید
               </div>
             </div>
-            <div className="w-10 h-0.5 bg-(--primary-color) flex"></div>
+
+            <div className="h-0.5 w-10 bg-(--primary-color)" />
+
             <div className="relative">
-            <div className="w-5 h-5 border-3 border-(--primary-color) rounded-full text-white flex items-center justify-center"></div>
-              <div className="absolute left-1/2 top-full -translate-x-1/2 text-xs text-center text-nowrap pt-2 text-(--text-secondary)">
+              <div className="h-5 w-5 rounded-full border-3 border-(--primary-color)" />
+              <div className="absolute left-1/2 top-full -translate-x-1/2 pt-2 text-center text-xs text-nowrap text-(--text-secondary)">
                 ارسال
               </div>
             </div>
-            <div className="w-10 h-0.5 bg-(--primary-color) flex"></div>
+
+            <div className="h-0.5 w-10 bg-(--primary-color)" />
+
             <div className="relative">
-              <div className="w-5 h-5 border-3 border-(--primary-color) rounded-full text-white flex items-center justify-center"></div>
-              <div className="absolute left-1/2 top-full -translate-x-1/2 text-xs text-center text-nowrap pt-2 text-(--text-secondary)">
+              <div className="h-5 w-5 rounded-full border-3 border-(--primary-color)" />
+              <div className="absolute left-1/2 top-full -translate-x-1/2 pt-2 text-center text-xs text-nowrap text-(--text-secondary)">
                 پرداخت
               </div>
             </div>
           </div>
         </div>
+
         <div className="flex gap-4 *:p-4 max-md:flex-wrap">
-          <div className="flex-1 *:py-4 border border-gray-300 rounded-lg overflow-auto">
-            <div className="flex border border-(--primary-color) rounded-lg">
-              <div className="flex items-center px-2">
-                <ShippingIcon />
-              </div>
-              <div className="flex-1 px-4 py-2 max-md:text-sm">
-                <div className="flex justify-between max-md:w-full text-(--primary-color)">
-                  <div>ارسال به آدرس انتخاب شده</div>
-                  <button className="flex gap-1 text-(--primary-color)">
-                    <span>تغییر آدرس</span>
-                    <ChevronDownIcon />
-                  </button>
+          <div className="min-w-0 flex-1 overflow-auto rounded-lg border border-gray-300 *:py-4">
+            <div className="rounded-2xl border border-violet-200 bg-white p-4 shadow-sm">
+              <div className="flex items-start gap-3">
+                <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-violet-100 text-(--primary-color)">
+                  <ShippingIcon />
                 </div>
-                <div>{addresses[addressIndex].address}</div>
+
+                <div className="min-w-0 flex-1">
+                  <div className="flex flex-wrap items-center justify-between gap-2">
+                    <div className="font-bold text-gray-800">
+                      آدرس تحویل سفارش
+                    </div>
+
+                    <button
+                      type="button"
+                      onClick={openAddressModal}
+                      className="flex shrink-0 items-center gap-1 rounded-lg px-2 py-1 text-sm font-semibold text-(--primary-color) transition hover:bg-violet-50"
+                    >
+                      تغییر آدرس
+                      <ChevronRightIcon className="rotate-180" />
+                    </button>
+                  </div>
+                  <div>
+                    <p className="pt-4 text-2xl font-bold text-(--text-natural)">
+                      {addresses[addressIndex].name}
+                    </p>
+                    <p className="mt-2 text-sm leading-7 text-gray-600">
+                      {addresses[addressIndex].address}
+                    </p>
+                  </div>
+                </div>
               </div>
             </div>
-            <div className="flex gap-2 items-center">
+
+            <div className="flex items-center gap-2">
               <div>خلاصه سبد خرید</div>
-              <div className="text-sm bg-gray-100 p-1 text-(--text-secondary) rounded-lg flex items-center">
+
+              <div className="flex items-center rounded-lg bg-gray-100 p-1 text-sm text-(--text-secondary)">
                 {cartProducts.length + " کالا"}
               </div>
             </div>
+
             <div className="flex gap-2 divide-x divide-gray-300 overflow-x-auto">
-              {cartProducts.map((p) => {
-                return (
-                  <div
-                    key={p.id}
-                    className="flex flex-col justify-center gap-2 p-2"
-                  >
-                    <div className="w-16 h-16">
-                      <img className="w-full" src={p.image_src} alt={p.name} />
-                    </div>
-                    <div className="flex justify-center text-(--text-secondary) text-xs">
-                      {p.color.name + " " + p.quantity + "x"}
-                    </div>
+              {cartProducts.map((p) => (
+                <div
+                  key={p.id}
+                  className="flex flex-col justify-center gap-2 p-2"
+                >
+                  <div className="h-16 w-16">
+                    <img
+                      className="w-full"
+                      src={p.image_src}
+                      alt={p.name}
+                    />
                   </div>
-                );
-              })}
+
+                  <div className="flex justify-center text-xs text-(--text-secondary)">
+                    {p.color.name + " " + p.quantity + "x"}
+                  </div>
+                </div>
+              ))}
             </div>
+
             <div>
-              <div className="flex gap-1 items-center text-(--text-primary)">
+              <div className="flex items-center gap-1 text-(--text-primary)">
                 <ClockIcon />
                 <span>زمان ارسال</span>
-                <div className="bg-linear-to-r from-yellow-500 to-yellow-300 p-1 rounded-tl-lg rounded-br-lg mr-2">
+
+                <div className="mr-2 rounded-tl-lg rounded-br-lg bg-linear-to-r from-yellow-500 to-yellow-300 p-1">
                   ارسال سریع دیجی شاپ!
                 </div>
               </div>
+
               <div className="mt-2 p-2">
                 <Swiper
                   modules={[Navigation, FreeMode]}
                   navigation
-                  freeMode={true}
+                  freeMode
                   slidesPerView="auto"
                   spaceBetween={32}
                 >
-                  {shippingDays.map((d) => {
-                    return (
-                      <SwiperSlide className="w-fit!">
-                        <div
-                          key={d.id}
-                          onClick={() => setShippingDateId(d.id)}
-                          className={`w-20 h-28 py-2 flex shrink-0 flex-col justify-between items-center rounded-lg hover:cursor-pointer transition-all duration-100
-                          ${
-                            shippingDateId === d.id
-                              ? "bg-(--primary-color) text-white! shadow-md-(--primary-color)"
-                              : "bg-[#f8f8f8]"
+                  {shippingDays.map((d) => (
+                    <SwiperSlide key={d.id} className="w-fit!">
+                      <button
+                        type="button"
+                        onClick={() => setShippingDateId(d.id)}
+                        className={`flex h-28 w-20 shrink-0 flex-col items-center justify-between rounded-lg py-2 transition-all duration-100 hover:cursor-pointer ${
+                          shippingDateId === d.id
+                            ? "bg-(--primary-color) text-white shadow-md"
+                            : "bg-[#f8f8f8]"
+                        }`}
+                      >
+                        <span>{d.weekday}</span>
+                        <span className="text-2xl">{d.day}</span>
+                        <span
+                          className={`text-sm ${
+                            shippingDateId !== d.id
+                              ? "text-(--text-secondary)"
+                              : ""
                           }`}
                         >
-                          <div>{d.weekday}</div>
-                          <div className="text-2xl">{d.day}</div>
-                          <div
-                            className={`text-sm ${
-                              shippingDateId !== d.id
-                                ? "text-(--text-secondary)"
-                                : ""
-                            }`}
-                          >
-                            {d.month}
-                          </div>
-                        </div>
-                      </SwiperSlide>
-                    );
-                  })}
+                          {d.month}
+                        </span>
+                      </button>
+                    </SwiperSlide>
+                  ))}
                 </Swiper>
               </div>
-              <div className="my-4 px-2 border-y border-gray-300">
+
+              <div className="my-4 border-y border-gray-300 px-2">
                 <button
-                  className="py-4 w-full flex justify-start gap-2 border-b border-gray-200"
+                  type="button"
+                  className="flex w-full justify-start gap-2 border-b border-gray-200 py-4"
                   onClick={() => setShippingTime("morning")}
                 >
                   <div
-                    className={`w-5 h-5 rounded-full ${
+                    className={`h-5 w-5 rounded-full ${
                       shippingTime === "morning"
                         ? "border-4 border-(--primary-color)"
                         : "border-2 border-neutral-800"
                     }`}
-                  ></div>
-                  <div className={`${
+                  />
+
+                  <div
+                    className={
                       shippingTime === "morning"
                         ? "font-bold"
                         : "font-normal"
-                    }`}>ساعت 9 تا 17</div>
+                    }
+                  >
+                    ساعت 9 تا 17
+                  </div>
                 </button>
+
                 <button
-                  className="py-4 w-full flex justify-start gap-2 border-b border-gray-200"
+                  type="button"
+                  className="flex w-full justify-start gap-2 border-b border-gray-200 py-4"
                   onClick={() => setShippingTime("night")}
                 >
-                  <div className={`w-5 h-5 rounded-full ${
+                  <div
+                    className={`h-5 w-5 rounded-full ${
                       shippingTime === "night"
-                        ? "border-4 border-(--primary-color) font-bold"
+                        ? "border-4 border-(--primary-color)"
                         : "border-2 border-neutral-800"
-                    }`}></div>
-                  <div className={`${
+                    }`}
+                  />
+
+                  <div
+                    className={
                       shippingTime === "night"
                         ? "font-bold"
                         : "font-normal"
-                    }`}>ساعت 17 تا 23</div>
+                    }
+                  >
+                    ساعت 17 تا 23
+                  </div>
                 </button>
               </div>
             </div>
           </div>
-          <div className="sticky top-20 h-fit md:w-75 w-full border border-gray-300 rounded-lg divide-y divide-gray-200">
-            <div className="p-4 flex justify-between items-center text-(--text-secondary)">
-              <div className="text-sm">
-                هزینه کالا ها:
-              </div>
+
+          <div className="sticky top-20 h-fit w-full divide-y divide-gray-200 rounded-lg border border-gray-300 md:w-75">
+            <div className="flex items-center justify-between p-4 text-(--text-secondary)">
+              <div className="text-sm">هزینه کالا ها:</div>
+
               <div className="flex gap-0.5">
-                <div className="text-sm">
-                  30,699,000
-                </div>
-                <TomanThinIcon className="w-4 h-4 text-(--text-secondary)" />
+                <div className="text-sm">30,699,000</div>
+                <TomanThinIcon className="h-4 w-4 text-(--text-secondary)" />
               </div>
             </div>
-            <div className="p-4 flex justify-between items-center text-(--text-secondary)">
-              <div className="text-sm">
-                هزینه ارسال:
-              </div>
+
+            <div className="flex items-center justify-between p-4 text-(--text-secondary)">
+              <div className="text-sm">هزینه ارسال:</div>
+
               <div className="flex gap-0.5">
-                <div className="text-sm">
-                  300,000
-                </div>
-                <TomanThinIcon className="w-4 h-4 text-(--text-secondary)" />
+                <div className="text-sm">300,000</div>
+                <TomanThinIcon className="h-4 w-4 text-(--text-secondary)" />
               </div>
             </div>
-            <div className="p-4 flex justify-between items-center text-(--text-natural) font-bold">
-              <div className="text-sm">
-                هزینه نهایی:
-              </div>
+
+            <div className="flex items-center justify-between p-4 font-bold text-(--text-natural)">
+              <div className="text-sm">هزینه نهایی:</div>
+
               <div className="flex gap-0.5">
-                <div>
-                  30,999,000
-                </div>
-                <TomanIcon className="w-4 h-4 text-(--text-secondary)" />
+                <div>30,999,000</div>
+                <TomanIcon className="h-4 w-4 text-(--text-secondary)" />
               </div>
             </div>
-            <div className="px-2 py-4 flex justify-center">
+
+            <div className="flex justify-center px-2 py-4">
               <a href="/payment" className="w-full">
-                <button className="bg-(--primary-color) text-white w-full p-2 rounded-lg">
+                <button className="w-full rounded-lg bg-(--primary-color) p-2 text-white">
                   اقدام به پرداخت
                 </button>
               </a>
@@ -238,6 +311,90 @@ export default function Shipping() {
           </div>
         </div>
       </Container>
+
+      {isAddressModalOpen && (
+        <div
+          className="fixed inset-0 z-[100] flex items-center justify-center bg-black/40 p-4 backdrop-blur-[2px]"
+          onClick={closeAddressModal}
+        >
+          <div
+            dir="rtl"
+            onClick={(e) => e.stopPropagation()}
+            className="w-full max-w-lg overflow-hidden rounded-2xl bg-white shadow-2xl"
+          >
+            <div className="flex items-center justify-between border-b border-gray-100 p-5">
+              <div>
+                <h2
+                  id="address-modal-title"
+                  className="text-lg font-black text-gray-800"
+                >
+                  انتخاب آدرس ارسال
+                </h2>
+
+                <p className="mt-1 text-xs text-gray-500">
+                  سفارش به کدام آدرس ارسال شود؟
+                </p>
+              </div>
+
+              <button
+                type="button"
+                onClick={closeAddressModal}
+                className="flex h-9 w-9 items-center justify-center rounded-xl bg-red-100 text-xl text-red-400 transition hover:bg-red-200"
+              >
+                <CrossIcon />
+              </button>
+            </div>
+
+            <div className="max-h-[55vh] space-y-3 overflow-y-auto p-5">
+              {addresses.length > 0 ? (
+                addresses.map((address, index) => (
+                  <button
+                    key={address.id ?? index}
+                    type="button"
+                    onClick={() => setAddressIndex(index)}
+                    className={`flex w-full items-start gap-3 rounded-xl border p-4 text-right transition ${
+                      addressIndex === index
+                        ? "border-(--primary-color) bg-violet-50/70 ring-1 ring-(--primary-color)"
+                        : "border-gray-200 hover:border-violet-200 hover:bg-gray-50"
+                    }`}
+                  >
+                    <span
+                      className={`mt-0.5 flex h-5 w-5 shrink-0 items-center justify-center rounded-full border ${
+                        addressIndex === index
+                          ? "border-(--primary-color) bg-(--primary-color) text-white"
+                          : "border-gray-300"
+                      }`}
+                    >
+                      {addressIndex === index && <CheckIcon />}
+                    </span>
+
+                    <span className="min-w-0 flex-1">
+                      <span className="mb-2 flex flex-wrap items-center gap-2 font-bold text-gray-800">
+                        {address.name}
+
+                        {addressIndex === index && (
+                          <span className="rounded-md bg-violet-100 px-2 py-1 text-[10px] font-medium text-(--primary-color)">
+                            انتخاب‌شده
+                          </span>
+                        )}
+                      </span>
+
+                      <span className="block text-sm leading-7 text-gray-600">
+                        {address.address}
+                      </span>
+                    </span>
+                  </button>
+                ))
+              ) : (
+                <p className="py-8 text-center text-sm text-gray-500">
+                  هنوز آدرسی ثبت نکرده‌ای.
+                </p>
+              )}
+            </div>
+          </div>
+        </div>
+      )}
+
       <Footer />
     </>
   );

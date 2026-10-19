@@ -20,7 +20,7 @@ export default function Wishlist() {
       <Container>
         <div className="flex max-sm:flex-wrap gap-4">
           <ProfileSidebar active={"wishlist"} className="max-sm:grow shrink-0" />
-          <div className="p-3 rounded-lg border border-gray-300">
+          <div className="p-3 rounded-lg border border-gray-300 w-full">
             <div className="flex justify-between items-center">
               <div className="flex gap-2 items-center py-5">
                 <p className="text-xl font-bold">
@@ -63,8 +63,6 @@ export default function Wishlist() {
                           className="w-full h-full object-cover"
                         />
                       </div>
-
-                      {/* اطلاعات محصول */}
                       <div className="flex-1 min-w-0 px-2 *:py-1">
                         <div className="text-sm md:text-base">
                           {p.name}

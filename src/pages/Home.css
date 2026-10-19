@@ -138,7 +138,7 @@
   position: relative;
   align-items: center;
   gap: 1.5rem;
-  background-color: var(--offer-color);
+  background: linear-gradient(270deg, #E01F2D, var(--offer-color));
   height: auto;
   border-radius: 20px;
   padding: 20px;

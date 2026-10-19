@@ -91,7 +91,7 @@ export default function ProfileSidebar({ className, active }) {
           if(active === i.name) {
             return(
               <li>
-                <a href={`profile/`} className="w-full flex gap-1 py-2 px-4 relative
+                <a href={`profile/${i.name}`} className="w-full flex gap-1 py-2 px-4 relative
                   before:content-['']
                   before:absolute
                   before:top-1

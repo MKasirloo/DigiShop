@@ -340,11 +340,22 @@
 .insuranceRemoveBtn {
   border: 1px solid rgb(164, 0, 0);
   color: rgb(164, 0, 0);
+  transition: all 0.15s;
+
+  &:hover {
+    background-color: rgba(255, 0, 0, 0.05);
+  }
 }
 
 .insuranceAddBtn {
   border: 1px solid #4d00ff;
   color: #4d00ff;
+
+  transition: all 0.15s;
+
+  &:hover {
+    background-color: #4c00ff09;
+  }
 }
 
 .expressDelivery {
@@ -381,10 +392,10 @@
 }
 
 .discount {
-  background-color: var(--offer-color);
+  background-color: rgba(222, 0, 19, 0.1);
   border-radius: 100px;
   padding: 6px 10px;
-  color: white;
+  color: var(--offer-color);
   width: fit-content;
   margin-bottom: 10px;
   font-size: smaller;
