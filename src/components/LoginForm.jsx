@@ -22,7 +22,7 @@ export default function LoginForm() {
         <div className={styles.logo}>
           <img src="/images/logo.png" alt="Logo" />
           <a href="/" className={styles.backIcon}>
-            <ChevronRightIcon />
+            <ChevronRightIcon className="stroke-gray-500!" />
           </a>
         </div>
 
@@ -51,7 +51,7 @@ export default function LoginForm() {
               <label htmlFor="phoneNumber" className={`${styles.mobileNumberLabel} ${phoneNumber !== '' ? styles.active : ''}`}>شماره موبایل...</label>
             </div>
           </form>
-          <a href="/verification" className="block w-full h-full">
+          <a href="/verification" className="block w-full">
             <button className={`${styles.loginButton} w-full`} disabled={!isOK}>
               ورود به دیجی شاپ
             </button>

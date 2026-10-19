@@ -42,6 +42,9 @@ export default function Verification() {
                     }
                   }}
                   onChange={(e) => {
+                    if(Number(e.target.value) != e.target.value) {
+                      return;
+                    }
                     if(e.target.value.length === 1) {
                       const newCode = [...code];
                       newCode[index] = e.target.value;
