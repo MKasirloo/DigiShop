@@ -154,11 +154,11 @@ export default function Header({ cartCount }) {
             <Icons.CategoriesIcon />
             <p>دسته بندی</p>
           </a>
-          <a href="#" className="bottom-navbar__items">
+          <a href="/cart" className="bottom-navbar__items">
             <Icons.CartIcon />
             <p>سبد خرید</p>
           </a>
-          <a href="./login.html" className="bottom-navbar__items">
+          <a href="/login" className="bottom-navbar__items">
             <Icons.AccountIcon />
             <p>حساب کاربری</p>
           </a>
