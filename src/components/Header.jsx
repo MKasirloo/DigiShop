@@ -8,10 +8,6 @@ export default function Header({ cartCount }) {
   const [isCategoriesMenuOpen, setIsCategoriesMenuOpen] = useState(false);
   const [searchInput, setSearchInput] = useState("");
 
-  function onSearchInputChange(e) {
-    setSearchInput(e.target.value);
-  }
-
   return (
     <header>
       <div className="header-fixer"></div>
@@ -29,7 +25,7 @@ export default function Header({ cartCount }) {
                 value={searchInput}
                 type="text"
                 placeholder="جستجو در محصولات..."
-                onChange={onSearchInputChange}
+                onChange={(e) => setSearchInput(e.target.value)}
                 className="placeholder:text-gray-500"
               />
               {searchInput !== '' && (
@@ -40,13 +36,13 @@ export default function Header({ cartCount }) {
           <div className="navbar-top-left">
             <div className="login-and-cart-container whitespace-nowrap max-md:hidden!">
               <a href="/cart">
-                <button className="cart">
+                <button className="cart hover:shadow-md transition-shadow">
                   <Icons.CartIcon className="w-7 h-7" />
                   <span className="cart-count-badge">{cartCount}</span>
                 </button>
               </a>
               <div className="w-px h-6 bg-gray-200 rounded-full"></div>
-              <a href="/login" className="login login-button-container font-bold">
+              <a href="/login" className="login login-button-container font-iransans font-medium! hover:shadow-md transition-shadow">
                 <Icons.LoginIcon />
                 <span>ورود</span>
                 <span style={{ fontWeight: 400 }}>|</span>
@@ -59,39 +55,39 @@ export default function Header({ cartCount }) {
           </div>
         </div>
         {/* Desktop navbar */}
-        <div className={`max-md:hidden navbar-bottom ${isMobileMenuOpen && "open"}`}>
+        <div className="max-md:hidden navbar-bottom">
           <ul className="navbar-bottom__list">
-            <li className="navbar-bottom__items group">
-              <div className="flex gap-1 items-center relative">
+            <div className="group relative flex h-full items-center navbar-bottom__items">
+              <button className="flex h-full items-center gap-2 text-sm font-semibold transition hover:text-(--primary-color)">
                 <Icons.MenuIcon />
-                دسته بندی محصولات
+                دسته‌بندی محصولات
                 <Icons.TriangleDownIcon />
-              </div>
-              <div
-                className="invisible absolute text-(--text-primary) bg-white top-full right-0 z-10 opacity-0 transition-opacity rounded-b-lg
-                group-hover:opacity-100
-                group-hover:visible
-              "
-              >
-                <ul className="grid grid-cols-2 list-none">
-                  {categories.map(c => (
-                    <li className="flex gap-2 items-center py-4 px-5">
-                      <span className="block w-fit rounded-md p-1 bg-violet-100 text-violet-500">
-                        {<c.icon />}
-                      </span>
-                      {c.name_fa}
-                    </li>
-                  ))}
+              </button>
+
+              <div className="invisible absolute right-0 top-full z-50 w-max min-w-[360px] translate-y-2 rounded-b-xl bg-white opacity-0 shadow-lg transition-all group-hover:visible group-hover:translate-y-0 group-hover:opacity-100 group-focus-within:visible group-focus-within:translate-y-0 group-focus-within:opacity-100">
+                <ul className="grid grid-cols-2 gap-1 p-3">
+                  {categories.map((category) => {
+                    return (
+                      <li key={category.id}>
+                        <a className="flex items-center gap-3 rounded-lg px-3 py-4 text-sm transition hover:bg-violet-50 hover:*:text-(--primary-color)!">
+                          <span className="shrink-0 rounded-lg bg-violet-100 p-2">
+                            <category.icon />
+                          </span>
+                          <span className="text-(--text-primary) transition-colors">{category.name_fa}</span>
+                        </a>
+                      </li>
+                    );
+                  })}
                 </ul>
               </div>
-            </li>
+            </div>
             <li
               className="navbar-bottom__first-divider"
               style={{ color: "rgb(115, 115, 115)" }}
             >
               |
             </li>
-            <li className="navbar-bottom__items hover:text-red-500! hover:after:bg-red-500!">
+            <li className="navbar-bottom__items offer-item">
               <Icons.SaleIcon />
               فروش ویژه!
             </li>

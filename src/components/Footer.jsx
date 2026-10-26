@@ -124,7 +124,7 @@ export default function Footer() {
         <div className="mx-auto flex max-w-7xl flex-col items-center justify-between gap-3 px-5 py-5 text-center sm:flex-row sm:px-8 sm:text-right">
           <p className="flex flex-wrap items-center justify-center gap-1.5 text-xs text-white/50 sm:justify-start sm:text-sm">
             <span>ساخته شده با</span>
-            <HeartIcon className="text-red-500 fill-red-500" />
+            <HeartIcon className="text-red-500 fill-red-500 -translate-y-1" />
             <span>توسط</span>
             <a
               href="https://www.linkedin.com/in/mohammad-hossein-kasirloo-8a38912aa/"
