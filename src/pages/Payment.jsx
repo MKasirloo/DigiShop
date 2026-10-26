@@ -68,7 +68,7 @@ export default function Payment() {
           <div className="relative flex items-center justify-center p-2">
             <a
               href="/shipping"
-              className="absolute right-0 top-1/2 flex -translate-y-1/2 items-center gap-1 rounded-lg px-2 py-1 text-sm text-(--text-secondary) transition hover:bg-gray-100 hover:text-(--primary-color) max-sm:text-xs"
+              className="absolute right-0 top-1/2 flex -translate-y-1/2 items-center gap-1 rounded-lg px-2 py-1 text-sm text-(--text-secondary) transition hover:bg-gray-100 max-sm:text-xs"
             >
               <ChevronRightIcon />
               زمان و شیوه ارسال
@@ -203,15 +203,15 @@ export default function Payment() {
                 <div>
                   <h2 className="font-bold text-gray-800">کد تخفیف</h2>
                   <p className="mt-1 text-xs text-(--text-secondary)">
-                    اگر کد تخفیف داری، اینجا واردش کن.
+                    اگر کد تخفیف دارید، اینجا وارد کنید.
                   </p>
                 </div>
               </div>
 
               <div className="mt-3 flex flex-wrap items-center gap-1 text-xs leading-6 text-(--text-secondary)">
                 <InfoIcon className="h-4 w-4 shrink-0" />
-                برای تست، کد <span className="font-bold">test</span> رو وارد
-                کن.
+                برای تست، کد <span className="font-bold">test</span> را وارد
+                کنید.
               </div>
 
               <form onSubmit={handleDiscountCode} className="mt-3">
@@ -258,7 +258,7 @@ export default function Payment() {
 
             <div className="space-y-4 p-4">
               <div className="flex items-center justify-between gap-3 text-sm text-(--text-secondary)">
-                <span>قیمت کالاها</span>
+                <span>هزینه کالاها</span>
                 <span className="flex shrink-0 items-center gap-1">
                   {productsPrice.toLocaleString()}
                   <TomanThinIcon className="h-4 w-4" />
@@ -274,7 +274,7 @@ export default function Payment() {
               </div>
 
               {hasDiscount && (
-                <div className="flex items-center justify-between gap-3 text-sm text-emerald-600">
+                <div className="flex items-center justify-between gap-3 text-sm bg-emerald-50 -mx-4 py-1 px-4 text-emerald-600">
                   <span className="flex items-center gap-1">
                     <DiscountIcon />
                     تخفیف
@@ -308,7 +308,6 @@ export default function Payment() {
                     e.preventDefault();
                   }
                 }}
-                aria-disabled={paymentMethod === "wallet"}
                 className={`mt-5 flex w-full items-center justify-center rounded-xl p-3 font-semibold text-white transition ${
                   paymentMethod === "wallet"
                     ? "cursor-not-allowed bg-gray-300"

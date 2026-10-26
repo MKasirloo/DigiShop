@@ -194,17 +194,9 @@
 /* Bottom navbar */
 
 .bottom-navbar {
-    display: none;
-    padding: 20px 0;
-    gap: 5px;
+    gap: 4px;
     justify-content: space-around;
     align-items: center;
-    height: 70px;
-    position: fixed;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    z-index: 10;
     background-color: hsla(0, 0%, 100%, 0.75);
     backdrop-filter: blur(10px);  
     font-size: 12px;
@@ -219,6 +211,10 @@
     justify-content: space-between;
     gap: 8px;
     width: 100%;
+
+    &.active {
+        
+    }
 }
 
 

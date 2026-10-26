@@ -48,7 +48,7 @@ export default function ProfileSidebar({ className, active }) {
   ];
 
   return(
-    <aside className={`w-60 divide-y divide-gray-300 border border-gray-300 rounded-lg h-fit ` + className}>
+    <aside className={`w-60 divide-y divide-gray-300 border border-gray-300 rounded-lg h-fit sticky ` + className}>
       <div>
         <div className="flex gap-2 items-center justify-between p-4">
           <div className="flex flex-col gap-1">

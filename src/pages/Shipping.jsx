@@ -66,10 +66,7 @@ export default function Shipping() {
       <Container>
         <div className="mb-4 rounded-lg border border-gray-300 p-4">
           <div className="relative flex justify-center p-2">
-            <a
-              href="/cart"
-              className="absolute right-0 top-1/2 flex -translate-y-1/2 items-center gap-1 max-lg:text-sm"
-            >
+            <a href="/cart" className="absolute right-0 top-1/2 flex -translate-y-1/2 items-center gap-1 max-lg:text-sm hover:bg-gray-100 transition-colors p-1 rounded-md">
               <ChevronRightIcon />
               سبد خرید
             </a>
@@ -113,7 +110,7 @@ export default function Shipping() {
 
         <div className="flex gap-4 *:p-4 max-md:flex-wrap">
           <div className="min-w-0 flex-1 overflow-auto rounded-lg border border-gray-300 *:py-4">
-            <div className="rounded-2xl border border-violet-200 bg-white p-4 shadow-sm">
+            <div className="rounded-lg border border-violet-200 bg-white p-4 shadow-sm">
               <div className="flex items-start gap-3">
                 <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-violet-100 text-(--primary-color)">
                   <ShippingIcon />

@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import * as Icons from "../assets/icons";
 import categories from "../data/categories";
 import "./Header.css";
@@ -7,6 +7,13 @@ export default function Header({ cartCount }) {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [isCategoriesMenuOpen, setIsCategoriesMenuOpen] = useState(false);
   const [searchInput, setSearchInput] = useState("");
+
+  useEffect(() => {
+    document.body.style.overflow = isMobileMenuOpen ? "hidden" : '';
+    return () => {
+      document.body.style.overflow = '';
+    }
+  }, [isMobileMenuOpen]);
 
   return (
     <header>
@@ -55,7 +62,7 @@ export default function Header({ cartCount }) {
           </div>
         </div>
         {/* Desktop navbar */}
-        <div className="max-md:hidden navbar-bottom">
+        <div className="max-md:hidden navbar-bottom mb-1">
           <ul className="navbar-bottom__list">
             <div className="group relative flex h-full items-center navbar-bottom__items">
               <button className="flex h-full items-center gap-2 text-sm font-semibold transition hover:text-(--primary-color)">
@@ -111,38 +118,65 @@ export default function Header({ cartCount }) {
         </div>
         
         {/* Mobile sidebar */}
-        <div className={`md:hidden ${!isMobileMenuOpen ? "translate-x-full" : ''} fixed flex flex-col justify-between top-0 bottom-0 right-0 transition-transform bg-white w-3/5 z-100000000`}>
-          <div>
-            <div className="bg-violet-50/70 flex justify-between items-center py-4 px-3">
-              <img src="/images/logo.png" alt="Logo" className="sm:w-40 w-35" />
-              <button onClick={() => setIsMobileMenuOpen(false)} className="flex size-9 items-center justify-center rounded-xl bg-white text-xl text-gray-600 shadow-sm hover:text-(--primary-color)">
-                <Icons.CrossIcon />
-              </button>
-            </div>
+        <div className={`md:hidden ${!isMobileMenuOpen ? "translate-x-full" : ''} fixed flex flex-col justify-between top-0 bottom-0 right-0 mb-1 transition-transform bg-white w-3/5 z-100000000`}>
+          <div className="bg-violet-50/70 flex justify-between items-center py-4 px-3 absolute w-full h-20">
+            <img src="/images/logo.png" alt="Logo" className="sm:w-40 w-35" />
+            <button onClick={() => setIsMobileMenuOpen(false)} className="flex size-9 items-center justify-center rounded-xl bg-white text-xl text-gray-600 shadow-sm hover:text-(--primary-color)">
+              <Icons.CrossIcon />
+            </button>
+          </div>
+          <div className="flex-1 mt-20 overflow-auto">
             <ul className="divide-y divide-gray-300">
-              <li className="flex gap-2! justify-start! font-light px-2 py-3 hover:text-red-500! hover:after:bg-red-500!">
+              <li className="overflow-hidden">
+                <button onClick={() => setIsCategoriesMenuOpen(!isCategoriesMenuOpen)} className={`flex gap-2 py-3 px-2 justify-between w-full
+                   ${isCategoriesMenuOpen ? "text-(--primary-color)!" : ''}
+                `}>
+                  <div className="flex gap-1">
+                    <Icons.MenuIcon />
+                    دسته بندی محصولات
+                  </div>
+                  <Icons.ChevronDownIcon className={isCategoriesMenuOpen ? "rotate-180 transition-transform" : "transition-transform"} />
+                </button>
+                <div className={`w-full ${isCategoriesMenuOpen ? "h-fit" : "h-0"} transition-all`}>
+                  <ul className="divide-y divide-gray-300">
+                    {categories.map((category) => {
+                      return (
+                        <li key={category.id}>
+                          <a className="flex items-center gap-3 rounded-lg px-3 py-4 text-sm transition hover:bg-violet-50 hover:*:text-(--primary-color)!">
+                            <span className="shrink-0 rounded-lg bg-violet-100 p-2">
+                              <category.icon />
+                            </span>
+                            <span className="text-(--text-primary) transition-colors">{category.name_fa}</span>
+                          </a>
+                        </li>
+                      );
+                    })}
+                  </ul>
+                </div>
+              </li>
+              <li className="flex gap-2! justify-start! px-2 py-3 hover:text-red-500! hover:after:bg-red-500!">
                 <Icons.SaleIcon />
                 فروش ویژه!
               </li>
-              <li className="flex gap-2! justify-start! font-light px-2 py-3">
+              <li className="flex gap-2! justify-start! px-2 py-3">
                 <Icons.RefreshIcon />
                 لوازم دست دوم
               </li>
-              <li className="flex gap-2! justify-start! font-light px-2 py-3">
+              <li className="flex gap-2! justify-start! px-2 py-3">
                 <Icons.OrganizationIcon />
                 خرید سازمانی
               </li>
-              <li className="flex gap-2! justify-start! font-light px-2 py-3">
+              <li className="flex gap-2! justify-start! px-2 py-3">
                 <Icons.PhoneIcon />
                 ارتباط با ما
               </li>
-              <li className="flex gap-2! justify-start! font-light px-2 py-3">
+              <li className="flex gap-2! justify-start! px-2 py-3">
                 <Icons.InfoIcon />
                 درباره ما
               </li>
             </ul>
           </div>
-          <div className="px-3 py-2 w-full">
+          <div className="px-3 py-2 w-full shrink-0">
             <a href="/profile/dashboard" className="bg-(--primary-color) text-white w-full py-2 flex justify-center items-center rounded-lg">
               ورود به حساب کاربری
             </a>
@@ -152,23 +186,25 @@ export default function Header({ cartCount }) {
           <div className="md:hidden fixed inset-0 bg-gray-900/70 z-10000000" onClick={() => setIsMobileMenuOpen(false)}></div>
         )}
 
-        <div className="bottom-navbar">
-          <a href="#" className="bottom-navbar__items">
-            <Icons.HomeIcon />
-            <p>خانه</p>
-          </a>
-          <a href="#" className="bottom-navbar__items">
-            <Icons.CategoriesIcon />
-            <p>دسته بندی</p>
-          </a>
-          <a href="/cart" className="bottom-navbar__items">
-            <Icons.CartIcon />
-            <p>سبد خرید</p>
-          </a>
-          <a href="/login" className="bottom-navbar__items">
-            <Icons.AccountIcon />
-            <p>حساب کاربری</p>
-          </a>
+        <div className="md:hidden py-5 px-3 fixed bottom-0 w-full z-10">
+          <div className="bottom-navbar flex backdrop-blur-2xl rounded-full px-1.5 py-2 *:px-2 *:py-2 border border-white/50">
+            <a href="#" className="bottom-navbar__items text-(--primary-color) bg-gray-100/50 px-2 py-2 rounded-full backdrop-blur-2xl">
+              <Icons.HomeIcon />
+              <span>خانه</span>
+            </a>
+            <a href="#" className="bottom-navbar__items">
+              <Icons.CategoriesIcon />
+              <span>دسته بندی</span>
+            </a>
+            <a href="/cart" className="bottom-navbar__items">
+              <Icons.CartIcon />
+              <span>سبد خرید</span>
+            </a>
+            <a href="/login" className="bottom-navbar__items">
+              <Icons.AccountIcon />
+              <span>حساب کاربری</span>
+            </a>
+          </div>
         </div>
       </nav>
     </header>

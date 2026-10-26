@@ -157,11 +157,11 @@ export default function Cart() {
               </div>
             </div>
             <div className="py-4!">
-              <button className="bg-(--primary-color) text-lg p-2 text-white rounded-lg w-full ">
-                <a href="/shipping" className="text-white">
+              <a href="/shipping" className="text-white">
+                <button className="bg-(--primary-color) text-lg p-2 text-white rounded-lg w-full ">
                   ثبت سفارش
-                </a>
-              </button>
+                </button>
+              </a>
             </div>
             <div className="flex gap-1 text-xs text-(--text-secondary)">
               <Icons.InfoIcon />
