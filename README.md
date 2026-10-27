@@ -1,3 +1,4 @@
+![](screenshots/digishop-banner.png)
 # DigiShop 🛍️
 
 ### A Modern Persian E-Commerce Experience
@@ -52,11 +53,27 @@ Built with React and modern frontend tools, the project focuses on reusable UI c
 
 | Home Page | Product Listing |
 | --- | --- |
-| ![DigiShop Home Page](screenshots/home.png) | <!-- Products screenshot --> |
+| ![DigiShop Home Page](screenshots/home.png) | ![](screenshots/products.png) |
 
-| Product Details | Authentication |
+| Product Details | Cart |
 | --- | --- |
-| <!-- Product details screenshot --> | <!-- Login screenshot --> |
+| ![](screenshots/single-product.png) | ![](screenshots/cart.png) |
+
+| Login | OTP Verification |
+| --- | --- |
+| ![](screenshots/login.png) | ![](screenshots/verification.png) |
+
+| Profile dashboard | Orders list |
+| --- | --- |
+| ![](screenshots/profile-dashboard.png) | ![](screenshots/profile-orders.png) |
+
+| Notifications | Uset information |
+| --- | --- |
+| ![](screenshots/profile-notifications.png) | ![](screenshots/profile-info.png) |
+
+| Shipping | Payment |
+| --- | --- |
+| ![](screenshots/shipping.png) | ![](screenshots/payment.png) |
 
 ## ⚙️ Getting Started
 
