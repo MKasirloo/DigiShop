@@ -1,3 +1,4 @@
+![](screenshots/digishop-banner.png)
 # DigiShop 🛍️
 
 ### A Modern Persian E-Commerce Experience
